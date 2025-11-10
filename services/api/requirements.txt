@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pydantic
+pysolr
+# Coincide con la versión del contenedor de Milvus
+pymilvus==2.6.3
+sentence-transformers
+transformers
+torch

@@ -1,0 +1,91 @@
+services:
+  # --- SERVICIO DE MILVUS STANDALONE (Actualizado) ---
+  milvus:
+    image: milvusdb/milvus:v2.6.4
+    container_name: milvus-standalone
+    security_opt: # <-- AÑADIDO
+      - seccomp:unconfined
+    environment: # <-- AÑADIDO
+      ETCD_USE_EMBED: 'true'
+      ETCD_DATA_DIR: '/var/lib/milvus/etcd'
+      ETCD_CONFIG_PATH: '/milvus/configs/embedEtcd.yaml'
+      COMMON_STORAGETYPE: 'local'
+      DEPLOY_MODE: 'STANDALONE'
+    ports:
+      - "19530:19530"
+      - "9091:9091"
+      - "2379:2379" # <-- AÑADIDO (para etcd)
+    volumes:
+      # --- VOLÚMENES CAMBIADOS ---
+      # Se reemplazan los volúmenes 'named' por 'bind mounts' (mapeo local)
+      # para que coincidan con tu comando 'docker run' (%cd%\...).
+      - ./services/milvus/volumes:/var/lib/milvus
+      - ./services/milvus/embedEtcd.yaml:/milvus/configs/embedEtcd.yaml
+      - ./services/milvus/user.yaml:/milvus/configs/user.yaml
+      # ---------------------------
+    command: ["milvus", "run", "standalone"]
+    healthcheck:
+      # --- HEALTHCHECK ACTUALIZADO ---
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 30s
+      timeout: 20s    # <-- CAMBIADO (era 10s)
+      retries: 3      # <-- CAMBIADO (era 5)
+      start_period: 90s # <-- CAMBIADO (era 30s)
+      
+  # --- SERVICIOS DEL TALLER (Tus servicios) ---
+  solr:
+    image: solr:8.11
+    container_name: solr-standalone
+    ports:
+      - "8983:8983"
+    volumes:
+      - solr_data:/var/solr
+    command: ["solr-precreate", "taller_rag_core"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8983/solr"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  api:
+    build:
+      context: ./services/api
+    container_name: api-fastapi
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./services/api:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      solr:
+        condition: service_healthy
+      milvus: 
+        condition: service_healthy
+    environment:
+      SOLR_HOST: 'solr'
+      SOLR_PORT: '8983'
+      SOLR_CORE: 'taller_rag_core'
+      MILVUS_HOST: 'milvus'
+      MILVUS_PORT: '19530'
+
+  indexer:
+    build:
+      context: ./services/indexer
+    container_name: indexer-script
+    volumes:
+      - ./services/indexer:/app
+      - ./data:/data
+    depends_on:
+      solr:
+        condition: service_healthy
+      milvus: 
+        condition: service_healthy
+    environment:
+      SOLR_HOST: 'solr'
+      SOLR_PORT: '8983'
+      SOLR_CORE: 'taller_rag_core'
+      MILVUS_HOST: 'milvus'
+      MILVUS_PORT: '19530'
+
+volumes:
+  solr_data:

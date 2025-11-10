@@ -1,0 +1,5 @@
+# Ignorar directorios __pycache__ en cualquier nivel
+**/__pycache__/
+
+# Ignorar todo el contenido dentro de services/milvus/volumes/
+services/milvus/volumes/
