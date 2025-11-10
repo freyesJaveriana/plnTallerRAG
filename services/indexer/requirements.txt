@@ -6,3 +6,5 @@ sentence-transformers
 transformers
 torch
 tqdm
+# Necesario para la segmentación (chunking) en oraciones
+nltk

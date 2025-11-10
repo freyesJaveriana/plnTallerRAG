@@ -3,9 +3,9 @@ services:
   milvus:
     image: milvusdb/milvus:v2.6.4
     container_name: milvus-standalone
-    security_opt: # <-- AÑADIDO
+    security_opt:
       - seccomp:unconfined
-    environment: # <-- AÑADIDO
+    environment:
       ETCD_USE_EMBED: 'true'
       ETCD_DATA_DIR: '/var/lib/milvus/etcd'
       ETCD_CONFIG_PATH: '/milvus/configs/embedEtcd.yaml'
@@ -16,9 +16,6 @@ services:
       - "9091:9091"
       - "2379:2379" # <-- AÑADIDO (para etcd)
     volumes:
-      # --- VOLÚMENES CAMBIADOS ---
-      # Se reemplazan los volúmenes 'named' por 'bind mounts' (mapeo local)
-      # para que coincidan con tu comando 'docker run' (%cd%\...).
       - ./services/milvus/volumes:/var/lib/milvus
       - ./services/milvus/embedEtcd.yaml:/milvus/configs/embedEtcd.yaml
       - ./services/milvus/user.yaml:/milvus/configs/user.yaml
@@ -28,10 +25,22 @@ services:
       # --- HEALTHCHECK ACTUALIZADO ---
       test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
       interval: 30s
-      timeout: 20s    # <-- CAMBIADO (era 10s)
-      retries: 3      # <-- CAMBIADO (era 5)
-      start_period: 90s # <-- CAMBIADO (era 30s)
-      
+      timeout: 20s    
+      retries: 3      
+      start_period: 90s 
+
+  # --- INTERFAZ GRÁFICA DE MILVUS (ATTU) ---
+  attu-gui:
+    image: zilliz/attu:v2.6.1 # Una versión de Attu compatible
+    container_name: attu-gui
+    ports:
+      - "8001:3000" # Expuesto en 8001 (para no chocar con tu API en 8000)
+    environment:
+      MILVUS_URL: 'milvus:19530' # Apunta al servicio 'milvus' en su puerto interno
+    depends_on:
+      milvus:
+        condition: service_healthy # Depende de que Milvus esté saludable      
+  
   # --- SERVICIOS DEL TALLER (Tus servicios) ---
   solr:
     image: solr:8.11

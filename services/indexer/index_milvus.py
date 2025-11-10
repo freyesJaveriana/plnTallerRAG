@@ -139,59 +139,50 @@ def index_data_in_milvus(data_df):
     # 5. Preparar y añadir documentos en lotes
     batch_size = 100
     
-    # ***************************************************************
-    # *** ¡ACCIÓN REQUERIDA! ***
-    # Ajusta los nombres de las columnas ('id', 'texto')
-    # para que coincidan con tu DataFrame.
-    # ***************************************************************
-
-    print("Iniciando iteración del corpus (esto es un placeholder)...")
+    print("Iniciando iteración del corpus...")
     
-    # --- EJEMPLO DE LÓGICA DE INDEXACIÓN ---
-    # (Actualmente comentado para que el placeholder se ejecute rápido)
-    #
-    # if data_df is not None and not data_df.empty:
-    #     try:
-    #         # Iterar en lotes (más eficiente)
-    #         for i in tqdm(range(0, len(data_df), batch_size), desc="Indexando en Milvus"):
-    #             batch = data_df.iloc[i:i + batch_size]
+    if data_df is not None and not data_df.empty:
+        try:
+            # Iterar en lotes (más eficiente)
+            for i in tqdm(range(0, len(data_df), batch_size), desc="Indexando en Milvus"):
+                batch = data_df.iloc[i:i + batch_size]
                 
-    #             # *** ¡AJUSTA ESTO! ***
-    #             ids_batch = batch['id_columna_en_tu_df'].astype(str).tolist()
-    #             text_batch = batch['texto_columna_en_tu_df'].astype(str).tolist()
+                # *** ¡AJUSTE REALIZADO! ***
+                ids_batch = batch['chunk_id'].astype(str).tolist()
+                text_batch = batch['text_content'].astype(str).tolist()
                 
-    #             # Generar embeddings
-    #             embeddings_batch = model.encode(text_batch)
+                # Generar embeddings
+                embeddings_batch = model.encode(text_batch)
                 
-    #             # Preparar datos para Milvus
-    #             entities = [
-    #                 ids_batch,
-    #                 text_batch,
-    #                 embeddings_batch
-    #             ]
+                # Preparar datos para Milvus (de acuerdo al esquema)
+                entities = [
+                    ids_batch,      # Campo ID_FIELD_NAME
+                    text_batch,     # Campo TEXT_FIELD_NAME
+                    embeddings_batch  # Campo VECTOR_FIELD_NAME
+                ]
                 
-    #             # Insertar en Milvus
-    #             collection.insert(entities)
+                # Insertar en Milvus
+                collection.insert(entities)
             
-    #         # 'Flush' final para asegurar que se escriban los datos
-    #         collection.flush()
-    #         print(f"Indexación en Milvus completada. Total: {len(data_df)} vectores.")
+            # 'Flush' final para asegurar que se escriban los datos
+            collection.flush()
+            print(f"\nIndexación en Milvus completada. Total: {len(data_df)} vectores.")
             
-    #         # Cargar colección en memoria para búsqueda
-    #         print("Cargando colección en memoria...")
-    #         collection.load()
-    #         print("Colección cargada.")
+            # Cargar colección en memoria para búsqueda
+            print("Cargando colección en memoria...")
+            collection.load()
+            print("Colección cargada.")
 
-    #     except Exception as e:
-    #         print(f"Error durante la indexación de Milvus: {e}")
-    #         print("Verifica los nombres de las columnas y la conexión.")
-    # else:
-    #     print("No se proporcionaron datos (DataFrame vacío) para indexar.")
+        except Exception as e:
+            print(f"\nError durante la indexación de Milvus: {e}")
+            print("Verifica los nombres de las columnas y la conexión.")
+    else:
+        print("No se proporcionaron datos (DataFrame vacío) para indexar.")
 
-    # --- Fin del Ejemplo ---
-    
     # Cargar la colección (incluso si está vacía) para que esté lista
+    print("Asegurando que la colección esté cargada (incluso si estaba vacía)...")
     collection.load()
     
     connections.disconnect(MILVUS_ALIAS)
-    print("--- Indexación en Milvus (Placeholder) Finalizada ---")
+    print("--- Indexación en Milvus Finalizada ---")    
+ 

@@ -50,64 +50,49 @@ def index_data_in_solr(data_df):
         return
 
     # --- Lógica de Fase 2 (Implementación) ---
-    # Este bloque es un placeholder. Deberás adaptarlo a la
-    # estructura de tu corpus (tu DataFrame).
 
     print("Preparando documentos para Solr...")
     
     # 3. (Opcional pero recomendado) Limpiar índice existente
     # print("Limpiando índice anterior...")
-    # solr.delete(q='*:*') # ¡Cuidado! Borra todo.
+    solr.delete(q='*:*') # ¡Cuidado! Borra todo.
 
     # 4. Preparar y añadir documentos en lotes
     batch_size = 500
     documents_batch = []
     
-    # ***************************************************************
-    # *** ¡ACCIÓN REQUERIDA! ***
-    # Ajusta los nombres de las columnas ('id', 'texto', 'fuente')
-    # para que coincidan con tu DataFrame.
-    #
-    # Solr (con el 'managed-schema') es flexible, pero se
-    # recomienda usar sufijos como:
-    #   '_s' para strings exactos (ej. 'id', 'fuente_s')
-    #   '_txt_es' para texto en español (ej. 'contenido_txt_es')
-    # ***************************************************************
-
-    print("Iniciando iteración del corpus (esto es un placeholder)...")
+    print("Iniciando iteración del corpus...")
     
-    # --- EJEMPLO DE LÓGICA DE INDEXACIÓN ---
-    # (Actualmente comentado para que el placeholder se ejecute rápido)
-    #
-    # if data_df is not None and not data_df.empty:
-    #     try:
-    #         for index, row in tqdm(data_df.iterrows(), total=data_df.shape[0], desc="Indexando en Solr"):
-    #             # *** ¡AJUSTA ESTO! ***
-    #             doc = {
-    #                 'id': str(row['id_columna_en_tu_df']),
-    #                 'contenido_txt_es': str(row['texto_columna_en_tu_df']),
-    #                 'fuente_s': str(row['fuente_columna_en_tu_df'])
-    #                 # Añade más campos si los necesitas
-    #             }
-    #             documents_batch.append(doc)
+    if data_df is not None and not data_df.empty:
+        try:
+            for index, row in tqdm(data_df.iterrows(), total=data_df.shape[0], desc="Indexando en Solr"):
                 
-    #             # Enviar lote cuando esté lleno
-    #             if len(documents_batch) >= batch_size:
-    #                 solr.add(documents_batch)
-    #                 documents_batch = []
+                # *** ¡AJUSTE REALIZADO! ***
+                # Usamos los nombres de columna del DataFrame
+                doc = {
+                    'id': str(row['chunk_id']),
+                    'text_content_txt_es': str(row['text_content']), # Campo de texto en español
+                    'source_document_s': str(row['source_document'])  # Campo string
+                }
+                documents_batch.append(doc)
+                
+                # Enviar lote cuando esté lleno
+                if len(documents_batch) >= batch_size:
+                    solr.add(documents_batch)
+                    documents_batch = []
 
-    #         # Enviar el último lote restante
-    #         if documents_batch:
-    #             solr.add(documents_batch)
+            # Enviar el último lote restante
+            if documents_batch:
+                solr.add(documents_batch)
             
-    #         print(f"Indexación en Solr completada. Total: {data_df.shape[0]} documentos.")
+            print(f"\nIndexación en Solr completada. Total: {data_df.shape[0]} documentos.")
 
-    #     except Exception as e:
-    #         print(f"Error durante la indexación de Solr: {e}")
-    #         print("Verifica los nombres de las columnas y el esquema de Solr.")
-    # else:
-    #     print("No se proporcionaron datos (DataFrame vacío) para indexar.")
+        except Exception as e:
+            print(f"\nError durante la indexación de Solr: {e}")
+            print("Verifica los nombres de las columnas y el esquema de Solr.")
+    else:
+        print("No se proporcionaron datos (DataFrame vacío) para indexar.")
 
-    # --- Fin del Ejemplo ---
+    print("--- Indexación en Solr Finalizada ---")
 
-    print("--- Indexación en Solr (Placeholder) Finalizada ---")
+ 
