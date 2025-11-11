@@ -3,3 +3,4 @@
 
 # Ignorar todo el contenido dentro de services/milvus/volumes/
 services/milvus/volumes/
+.env

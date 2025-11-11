@@ -7,3 +7,4 @@ pymilvus==2.6.3
 sentence-transformers
 transformers
 torch
+google-generativeai

@@ -77,6 +77,7 @@ services:
       SOLR_CORE: 'taller_rag_core'
       MILVUS_HOST: 'milvus'
       MILVUS_PORT: '19530'
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
     # Esto permite que otros servicios (como el evaluador)
     # esperen a que la API esté 100% lista (modelos cargados).
     healthcheck:
