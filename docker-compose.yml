@@ -77,7 +77,15 @@ services:
       SOLR_CORE: 'taller_rag_core'
       MILVUS_HOST: 'milvus'
       MILVUS_PORT: '19530'
-
+    # Esto permite que otros servicios (como el evaluador)
+    # esperen a que la API esté 100% lista (modelos cargados).
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 10s
+      retries: 20 # Le da tiempo de sobra para descargar los modelos
+      start_period: 60s # Espera 1 min antes de empezar a chequear
+      
   indexer:
     build:
       context: ./services/indexer
@@ -97,7 +105,27 @@ services:
       SOLR_CORE: 'taller_rag_core'
       MILVUS_HOST: 'milvus'
       MILVUS_PORT: '19530'
-
+      
+  evaluator:
+    build:
+      # El "contexto" es la carpeta /reports donde crearemos los archivos
+      context: ./services/evaluator
+    container_name: evaluator-script
+    volumes:
+     # 2. Mapea el código del evaluador a /app
+      - ./services/evaluator:/app
+      # 3. Mapea la carpeta de reportes a /reports
+      - ./reports:/reports
+    depends_on:
+      api:
+        # ¡IMPORTANTE! No se ejecuta hasta que la API
+        # pase su chequeo de salud (modelos cargados).
+        condition: service_healthy
+    environment:
+      # Le decimos al script dónde encontrar la API
+      # (el nombre del servicio 'api' es la URL)
+      API_HOST: 'api'
+      API_PORT: '8000'
 volumes:
   solr_data:
   huggingface_cache:

@@ -1,0 +1,7 @@
+requests
+pandas
+tqdm
+# Librería de Google para calcular ROUGE
+rouge-score
+# NLTK es usado por rouge-score para tokenizar
+nltk
