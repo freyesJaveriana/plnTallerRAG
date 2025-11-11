@@ -59,27 +59,38 @@ def create_milvus_collection():
     # 1. Definir campos
     field_id = FieldSchema(
         name=ID_FIELD_NAME,
-        dtype=DataType.VARCHAR, # Usar VARCHAR para IDs flexibles
+        dtype=DataType.VARCHAR,
         is_primary=True,
         auto_id=False,
-        max_length=256 # Ajusta si tus IDs son más largos
+        max_length=256
     )
     field_text = FieldSchema(
         name=TEXT_FIELD_NAME,
         dtype=DataType.VARCHAR,
-        max_length=65535 # Límite largo para el texto
+        max_length=65535
     )
+    
+    # --- CAMBIO AQUÍ: AÑADIDO NUEVO CAMPO ---
+    field_source = FieldSchema(
+        name="source_document", # El campo que faltaba
+        dtype=DataType.VARCHAR,
+        max_length=512 # Suficiente para un nombre de archivo
+    )
+    # --- FIN DEL CAMBIO ---
+
     field_vector = FieldSchema(
         name=VECTOR_FIELD_NAME,
         dtype=DataType.FLOAT_VECTOR,
         dim=MODEL_DIMENSION
     )
 
-    # 2. Crear esquema
+    # 2. Crear esquema (¡Añadir el nuevo campo!)
     schema = CollectionSchema(
-        fields=[field_id, field_text, field_vector],
+        # --- CAMBIO AQUÍ: AÑADIDO field_source ---
+        fields=[field_id, field_text, field_source, field_vector],
         description="Colección para Taller RAG"
     )
+    # --- FIN DEL CAMBIO ---
 
     # 3. Crear colección
     collection = Collection(
@@ -90,11 +101,11 @@ def create_milvus_collection():
     
     print(f"Colección '{COLLECTION_NAME}' creada.")
     
-    # 4. Crear índice (¡importante para la velocidad de búsqueda!)
+    # 4. Crear índice
     print(f"Creando índice HNSW para '{VECTOR_FIELD_NAME}'...")
     index_params = {
         "metric_type": METRIC_TYPE,
-        "index_type": "HNSW", # Un índice rápido y popular
+        "index_type": "HNSW",
         "params": {"M": 8, "efConstruction": 64}
     }
     collection.create_index(
@@ -150,6 +161,7 @@ def index_data_in_milvus(data_df):
                 # *** ¡AJUSTE REALIZADO! ***
                 ids_batch = batch['chunk_id'].astype(str).tolist()
                 text_batch = batch['text_content'].astype(str).tolist()
+                source_batch = batch['source_document'].astype(str).tolist() # <-- AÑADIDO
                 
                 # Generar embeddings
                 embeddings_batch = model.encode(text_batch)
@@ -158,6 +170,7 @@ def index_data_in_milvus(data_df):
                 entities = [
                     ids_batch,      # Campo ID_FIELD_NAME
                     text_batch,     # Campo TEXT_FIELD_NAME
+                    source_batch,   # field_source <-- AÑADIDO
                     embeddings_batch  # Campo VECTOR_FIELD_NAME
                 ]
                 

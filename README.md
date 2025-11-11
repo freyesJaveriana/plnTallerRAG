@@ -1,63 +1,125 @@
 # Taller RAG Comparativo (Solr vs. Milvus)
 
-Este repositorio contiene el código para el taller de RAG, comparando un pipeline léxico (Solr + BM25) con uno vectorial (Milvus + Embeddings).
+Este repositorio contiene el código fuente de un sistema dual de Generación Aumentada por Recuperación (RAG). El proyecto levanta y compara dos *pipelines* de búsqueda:
 
-## Estructura
+1.  **Léxico (BM25):** Implementado con **Solr**.
+2.  **Vectorial (Semántico):** Implementado con **Milvus** y modelos de *embeddings*.
 
-- **/data/corpus/**: (Vacío) Coloca aquí tus archivos de corpus (CSV, TXT, Parquet, etc.).
-- **/services/api/**: Código de la API de FastAPI que sirve el endpoint `/ask`.
-- **/services/indexer/**: Scripts para poblar Solr y Milvus desde el corpus.
-- **/services/solr/**: (Vacío) Docker usa esta carpeta para configuraciones de Solr si es necesario.
-- **/services/milvus/**: (Vacío) Docker usa esta carpeta para configuraciones de Milvus si es necesario.
-- **/reports/**: (Vacío) Aquí irán los resultados de la evaluación (Fase 4).
-- `docker-compose.yml`: Archivo principal que define y orquesta todos los servicios.
+El sistema expone una única API de FastAPI que puede enrutar una consulta a cualquiera de los dos *backends* para comparar la calidad de la respuesta, la latencia y los documentos recuperados.
 
-## Cómo Empezar
+## 🏛️ Arquitectura del Sistema
+
+El proyecto está orquestado con `docker-compose` y consiste en los siguientes servicios:
+
+  * `solr`: Instancia de Solr 8.11 que sirve como *backend* léxico.
+  * `milvus`: Instancia de Milvus 2.4 (standalone) que sirve como *backend* vectorial.
+  * `api`: Servicio de FastAPI (Python) que expone el *endpoint* `POST /ask`. Este servicio carga los modelos de IA (embeddings y LLM generador) y se conecta a ambos *backends*.
+  * `indexer`: Un script (servicio de un solo uso) que lee el corpus, lo segmenta (chunking) en pasajes y pobla tanto Solr como Milvus.
+  * `attu-gui`: (Opcional) Una interfaz de usuario web para visualizar y gestionar la base de datos vectorial de Milvus.
+
+-----
+
+## 🗂️ Estructura de Carpetas
+
+  * `/data/corpus/`: Contiene los archivos `.txt` del corpus que se van a indexar.
+  * `/data/chunks_debug.csv`: (Generado por el indexador) Un CSV para depuración que muestra todos los pasajes (chunks) creados.
+  * `/services/api/`: Código fuente de la API de FastAPI (`main.py`) y sus dependencias (`requirements.txt`).
+  * `/services/indexer/`: Scripts de indexación (`main_indexer.py`, `index_solr.py`, `index_milvus.py`) que leen el corpus y lo preparan.
+  * `/services/milvus/volumes/`: (Generado en local) Mapeo de los volúmenes persistentes de Milvus.
+  * `/reports/`: (Vacío) Destinado a los resultados de la Fase 4 (evaluación).
+  * `docker-compose.yml`: Archivo principal que define y orquesta todos los servicios.
+
+-----
+
+## 🚀 Guía de Instalación y Ejecución
 
 **Requisitos:**
-- Docker y Docker Compose instalados.
-- Un corpus en `/data/corpus/`.
 
-### 1. Levantar los Servicios
+  * Docker y Docker Compose instalados.
 
-Construye y levanta todos los contenedores (Solr, Milvus, API) en modo 'detached' (-d).
+### 1\. Levantar Servicios (Bases de Datos y API)
+
+Este comando construirá las imágenes (la primera vez puede tardar varios minutos en descargar los modelos base y las librerías de Python) y levantará los servicios en modo *detached* (-d).
 
 ```bash
 docker-compose up --build -d
-````
-
-Puedes verificar que todo esté corriendo con:
-
-```bash
-docker-compose ps
 ```
 
-Deberías ver 3 servicios corriendo: `api`, `milvus`, y `solr`.
+Espera a que los servicios estén listos, especialmente la API. Puedes monitorear la descarga de los modelos de IA (Embeddings y LLM) con:
+
+```bash
+docker-compose logs -f api
+```
+
+Espera hasta que veas el mensaje: `--- API Lista y Modelos Cargados ---`
 
 ### 2\. Ejecutar la Indexación
 
-Una vez que los servicios estén saludables (puede tomar 1-2 minutos para que Milvus y Solr inicien), puedes ejecutar el servicio `indexer`.
-
-Este comando inicia un *nuevo* contenedor temporal usando la definición de `indexer` del `docker-compose.yml`, ejecuta el `main_indexer.py`, y luego se detiene.
+Una vez que los servicios (`solr`, `milvus` y `api`) estén corriendo, ejecuta el servicio de indexación. Este es un contenedor temporal que se conecta a las bases de datos y las puebla.
 
 ```bash
 docker-compose run --rm indexer
 ```
 
-*(Deberás implementar la lógica en `index_solr.py` y `index_milvus.py` para que esto haga algo útil)*
+Este script leerá todos los archivos de `/data/corpus/`, los segmentará en pasajes (chunks), y los indexará en Solr y Milvus.
 
-### 3\. Probar la API
+### 3\. Acceder a las Interfaces Gráficas
 
-La API estará disponible en `http://localhost:8000`.
+Puedes verificar que los datos se hayan cargado correctamente accediendo a las interfaces web (asegúrate de que los puertos no estén en conflicto):
 
-Puedes probar el endpoint (después de implementar la lógica) con `curl` o Postman:
+  * **Solr (Léxico):**
 
-```bash
-curl -X POST "http://localhost:8000/ask" \
-     -H "Content-Type: application/json" \
-     -d '{
-           "query": "Tu pregunta aquí",
-           "backend": "solr",
-           "k": 3
-         }'
+      * URL: `http://localhost:8983/solr`
+      * Usa el "Core Selector" para elegir `taller_rag_core` y haz clic en "Query" para ver los documentos indexados.
+
+  * **Attu (Vectorial):**
+
+      * URL: `http://localhost:8001` (o el puerto que hayas definido para `attu-gui` en tu `docker-compose.yml`)
+      * Conéctate a la instancia de Milvus (usualmente `milvus:19530` desde dentro de Docker, o `localhost:19530` si Attu se conecta desde fuera) y explora la colección `taller_rag_corpus`.
+
+### 4\. Probar la API Unificada
+
+La API está lista para recibir consultas en `http://localhost:8000`. Se recomienda usar un cliente como **Insomnia** o **Postman** para manejar correctamente la codificación de caracteres (UTF-8).
+
+**Configuración de la Petición:**
+
+  * **Método:** `POST`
+  * **URL:** `http://localhost:8000/ask`
+  * **Body:** `JSON`
+
+**Ejemplo de Body (Prueba Léxica):**
+
+```json
+{
+	"query": "Qué pasó con la Unión Patriótica?",
+	"backend": "solr",
+	"k": 3
+}
+```
+
+**Ejemplo de Body (Prueba Semántica):**
+
+```json
+{
+	"query": "Qué pasó con la Unión Patriótica?",
+	"backend": "milvus",
+	"k": 3
+}
+```
+
+**Respuesta Esperada:**
+Recibirás un JSON con la respuesta generada por el LLM (en español) y la lista de `source_documents` que se usaron como contexto.
+
+```json
+{
+  "answer": "El genocidio de la Unión Patriótica fue una...",
+  "source_documents": [
+    {
+      "id": "30-El genocidio de la Uni¢n Patri¢tica.txt_0001",
+      "content": "El genocidio de la Unión Patriótica (UP) es uno de los episodios más oscuros...",
+      "source_file": "30-El genocidio de la Uni¢n Patri¢tica.txt"
+    },
+    ...
+  ]
+}
 ```

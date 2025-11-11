@@ -37,7 +37,7 @@ def index_data_in_solr(data_df):
     try:
         # 1. Conectar a Solr
         print(f"Conectando a Solr en: {SOLR_URL}")
-        solr = pysolr.Solr(SOLR_URL, always_commit=True, timeout=30)
+        solr = pysolr.Solr(SOLR_URL, always_commit=True, timeout=30, decoder='utf-8')
         
         # 2. Verificar conexión
         if not wait_for_solr(solr):
