@@ -1,33 +1,43 @@
 # Taller RAG Comparativo (Solr vs. Milvus)
+Docente: **Luis Gabriel Moreno Sandoval**
 
-Este repositorio contiene el código fuente de un sistema dual de Generación Aumentada por Recuperación (RAG). El proyecto levanta y compara dos *pipelines* de búsqueda:
+---
+*Grupo Número 1:*
 
-1.  **Léxico (BM25):** Implementado con **Solr**.
-2.  **Vectorial (Semántico):** Implementado con **Milvus** y modelos de *embeddings*.
+- LUCENA ORJUELA, JULIAN
+- MARTINEZ BERMUDEZ, JUAN
+- MONTENEGRO MAFLA, MARIA
+- REYES PALACIO, FELIPE 
 
-El sistema expone una única API de FastAPI que puede enrutar una consulta a cualquiera de los dos *backends* para comparar la calidad de la respuesta, la latencia y los documentos recuperados.
+
+Este repositorio contiene el código fuente de un sistema dual de Generación Aumentada por Recuperación (RAG) diseñado para una evaluación de rendimiento avanzada. El proyecto compara dos *pipelines* de búsqueda fundamentalmente diferentes sobre el mismo corpus:
+
+1.  **Léxico + Semántica Manual:** Implementado con **Solr 8.11**, mejorado con el **Tesauro CEV** (`resource-tesauro.rdf`) que se carga dinámicamente en el esquema.
+2.  **Semántica de IA:** Implementado con **Milvus 2.4**, utilizando *embeddings* de alta calidad (`text-embedding-004` de Google, 768 dimensiones).
+
+El sistema expone una única API de FastAPI que utiliza el modelo **Gemini (Google)** para la generación de respuestas y está configurada para medir por separado la latencia de recuperación y la latencia total.
 
 ## 🏛️ Arquitectura del Sistema
 
 El proyecto está orquestado con `docker-compose` y consiste en los siguientes servicios:
 
   * `solr`: Instancia de Solr 8.11 que sirve como *backend* léxico.
-  * `milvus`: Instancia de Milvus 2.4 (standalone) que sirve como *backend* vectorial.
-  * `api`: Servicio de FastAPI (Python) que expone el *endpoint* `POST /ask`. Este servicio carga los modelos de IA (embeddings y LLM generador) y se conecta a ambos *backends*.
-  * `indexer`: Un script (servicio de un solo uso) que lee el corpus, lo segmenta (chunking) en pasajes y pobla tanto Solr como Milvus.
-  * `attu-gui`: (Opcional) Una interfaz de usuario web para visualizar y gestionar la base de datos vectorial de Milvus.
-
------
+  * `milvus`: Instancia de Milvus 2.4 (standalone) configurada para vectores de 768 dimensiones.
+  * `api`: Servicio de FastAPI (Python) que expone el *endpoint* `POST /ask`. Utiliza la API de Google (`Gemini` para generación, `text-embedding-004` para consultas).
+  * `indexer`: Un script (servicio de un solo uso) que lee el corpus, lo segmenta (5 oraciones, 2 de superposición), y pobla ambos *backends* (Solr+Tesauro y Milvus+Google Embeddings).
+  * `evaluator`: Un script de evaluación (servicio de un solo uso) que ejecuta el `gold_standard.json` contra la API para generar el `evaluation_results.csv`.
+  * `attu-gui`: Interfaz de usuario web para visualizar la base de datos vectorial de Milvus.
 
 ## 🗂️ Estructura de Carpetas
 
-  * `/data/corpus/`: Contiene los archivos `.txt` del corpus que se van a indexar.
-  * `/data/chunks_debug.csv`: (Generado por el indexador) Un CSV para depuración que muestra todos los pasajes (chunks) creados.
-  * `/services/api/`: Código fuente de la API de FastAPI (`main.py`) y sus dependencias (`requirements.txt`).
-  * `/services/indexer/`: Scripts de indexación (`main_indexer.py`, `index_solr.py`, `index_milvus.py`) que leen el corpus y lo preparan.
-  * `/services/milvus/volumes/`: (Generado en local) Mapeo de los volúmenes persistentes de Milvus.
-  * `/reports/`: (Vacío) Destinado a los resultados de la Fase 4 (evaluación).
-  * `docker-compose.yml`: Archivo principal que define y orquesta todos los servicios.
+  * `/.env`: **(¡Archivo crítico, debe ser creado\!)** Contiene la `GOOGLE_API_KEY` necesaria.
+  * `/data/corpus/`: Contiene los archivos `.txt` del corpus.
+  * `/data/resource-tesauro.rdf`: El tesauro de semántica manual para Solr.
+  * `/services/api/`: Código fuente de la API de FastAPI (`main.py`).
+  * `/services/indexer/`: Scripts de indexación (`main_indexer.py`, `index_solr.py`, `index_milvus.py`, `parse_tesauro.py`).
+  * `/services/evaluator/`: Script de evaluación (`evaluate.py`) y sus dependencias.
+  * `/reports/`: Contiene el `gold_standard_conceptual.json` (entrada) y genera el `evaluation_results.csv` (salida).
+  * `docker-compose.yml`: Archivo principal que orquesta todos los servicios.
 
 -----
 
@@ -35,91 +45,96 @@ El proyecto está orquestado con `docker-compose` y consiste en los siguientes s
 
 **Requisitos:**
 
-  * Docker y Docker Compose instalados.
+  * Docker y Docker Compose.
+  * Una **Clave de API de Google** (para Gemini y los Embeddings).
 
-### 1\. Levantar Servicios (Bases de Datos y API)
+### Paso 1: Configuración de la Clave de API (Obligatorio)
 
-Este comando construirá las imágenes (la primera vez puede tardar varios minutos en descargar los modelos base y las librerías de Python) y levantará los servicios en modo *detached* (-d).
+En la carpeta raíz del proyecto (junto a `docker-compose.yml`), crea un archivo llamado `.env` y añade tu clave:
 
-```bash
-docker-compose up --build -d
+```ini
+# Archivo: .env
+GOOGLE_API_KEY=tu_clave_de_api_aqui
 ```
 
-Espera a que los servicios estén listos, especialmente la API. Puedes monitorear la descarga de los modelos de IA (Embeddings y LLM) con:
+Esta clave es utilizada por los servicios `api`, `indexer` y `evaluator`.
+
+### Paso 2: Iniciar Servicios y Reconstruir Imágenes
+
+Este comando construirá las imágenes con todas las dependencias (`google-generativeai`, `rdflib`, `tabulate`, `rouge-score`, etc.) e iniciará los servicios de base de datos (`solr`, `milvus`, `attu`).
 
 ```bash
-docker-compose logs -f api
+docker-compose up -d --build
 ```
 
-Espera hasta que veas el mensaje: `--- API Lista y Modelos Cargados ---`
+*(Nota: El volumen `huggingface_cache` se usará para los modelos de embeddings `MiniLM` si se usan, pero nuestra configuración final usa la API de Google).*
 
-### 2\. Ejecutar la Indexación
+### Paso 3: Ejecutar la Indexación
 
-Una vez que los servicios (`solr`, `milvus` y `api`) estén corriendo, ejecuta el servicio de indexación. Este es un contenedor temporal que se conecta a las bases de datos y las puebla.
+Este comando ejecuta el `indexer`. El script esperará a que `solr` y `milvus` estén *healthy* antes de ejecutarse.
 
 ```bash
 docker-compose run --rm indexer
 ```
 
-Este script leerá todos los archivos de `/data/corpus/`, los segmentará en pasajes (chunks), y los indexará en Solr y Milvus.
+Este script (si no está comentado) realizará dos acciones:
 
-### 3\. Acceder a las Interfaces Gráficas
+1.  **En Solr:** Cargará los 186 sinónimos del Tesauro en el esquema, borrará el índice y re-indexará los *chunks* de 5 oraciones.
+2.  **En Milvus:** Creará la colección de 768 dimensiones y generará los *embeddings* usando la API de Google (`text-embedding-004`).
 
-Puedes verificar que los datos se hayan cargado correctamente accediendo a las interfaces web (asegúrate de que los puertos no estén en conflicto):
+### Paso 4: Acceder a las Interfaces Gráficas
 
-  * **Solr (Léxico):**
+Puedes verificar que los datos se hayan cargado correctamente:
 
-      * URL: `http://localhost:8983/solr`
-      * Usa el "Core Selector" para elegir `taller_rag_core` y haz clic en "Query" para ver los documentos indexados.
+  * **Solr (Léxico + Tesauro):** `http://localhost:8983/solr` (Busca el núcleo `taller_rag_core`).
+  * **Attu (Vectorial):** `http://localhost:8001` (Conéctate a `milvus-standalone:19530` y explora `taller_rag_corpus`).
 
-  * **Attu (Vectorial):**
+### Paso 5: Ejecutar la Evaluación
 
-      * URL: `http://localhost:8001` (o el puerto que hayas definido para `attu-gui` en tu `docker-compose.yml`)
-      * Conéctate a la instancia de Milvus (usualmente `milvus:19530` desde dentro de Docker, o `localhost:19530` si Attu se conecta desde fuera) y explora la colección `taller_rag_corpus`.
+Este comando ejecuta el `evaluator`. Esperará a que el servicio `api` pase su *healthcheck* (es decir, que la API de Gemini esté cargada) antes de enviar las 216 solicitudes.
 
-### 4\. Probar la API Unificada
+*(Asegúrate de que tu Gold Standard conceptual esté en `/reports/gold_standard.json`).*
 
-La API está lista para recibir consultas en `http://localhost:8000`. Se recomienda usar un cliente como **Insomnia** o **Postman** para manejar correctamente la codificación de caracteres (UTF-8).
-
-**Configuración de la Petición:**
-
-  * **Método:** `POST`
-  * **URL:** `http://localhost:8000/ask`
-  * **Body:** `JSON`
-
-**Ejemplo de Body (Prueba Léxica):**
-
-```json
-{
-	"query": "Qué pasó con la Unión Patriótica?",
-	"backend": "solr",
-	"k": 3
-}
+```bash
+docker-compose run --rm evaluator
 ```
 
-**Ejemplo de Body (Prueba Semántica):**
+Al finalizar, se creará el archivo `/reports/evaluation_results.csv`.
+
+### Paso 6: Analizar Resultados
+
+Usa el *notebook* (`ComparativoModelos.ipynb`) para cargar el `evaluation_results.csv`. El *notebook* está configurado para:
+
+1.  Filtrar cualquier error de generación (`Error al generar la respuesta...`).
+2.  Calcular las métricas promedio (Recall, MRR, ROUGE-L, y ambas latencias).
+3.  Generar los gráficos de barras y diagramas de caja para el informe final.
+
+### Paso 7: Probar la API Manualmente (Opcional)
+
+Puedes usar Insomnia o Postman para probar la API en `http://localhost:8000/ask`.
+
+**Ejemplo de Body (Prueba Semántica Conceptual):**
 
 ```json
 {
-	"query": "Qué pasó con la Unión Patriótica?",
+	"query": "¿Qué componente de la tríada de paz de Betancur resultó incompleto?",
 	"backend": "milvus",
 	"k": 3
 }
 ```
 
 **Respuesta Esperada:**
-Recibirás un JSON con la respuesta generada por el LLM (en español) y la lista de `source_documents` que se usaron como contexto.
 
 ```json
 {
-  "answer": "El genocidio de la Unión Patriótica fue una...",
+  "answer": "El componente de la tríada de paz de Betancur que resultó incompleto fue el de la reforma política y social...",
   "source_documents": [
     {
-      "id": "30-El genocidio de la Uni¢n Patri¢tica.txt_0001",
-      "content": "El genocidio de la Unión Patriótica (UP) es uno de los episodios más oscuros...",
-      "source_file": "30-El genocidio de la Uni¢n Patri¢tica.txt"
-    },
-    ...
-  ]
+      "id": "26-®Los enemigos agazapados de la paz¯.txt_0000",
+      "content": "La tríada de la paz de Betancur -diálogo, reforma y apertura- estaba incompleta...",
+      "source_file": "26-®Los enemigos agazapados de la paz¯.txt"
+    }
+  ],
+  "retrieval_latency_sec": 0.0041
 }
 ```

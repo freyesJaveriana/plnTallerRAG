@@ -10,3 +10,5 @@ tqdm
 nltk
 google-generativeai
 dotenv
+requests
+rdflib
