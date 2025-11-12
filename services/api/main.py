@@ -8,6 +8,7 @@ from contextlib import asynccontextmanager
 # --- Conectores de Bases de Datos ---
 import pysolr
 from pymilvus import connections, Collection
+from dotenv import load_dotenv
 
 # --- Stack de IA (Embeddings y Generador) ---
 from sentence_transformers import SentenceTransformer
@@ -27,9 +28,9 @@ MILVUS_ALIAS = "default"
 
 # --- Constantes del Modelo ---
 # Mismo modelo de embeddings usado en la indexación [cite: 42, 43, 156]
-EMBEDDING_MODEL_NAME = 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
-# Un modelo generador (LLM) bastante bueno de Google
+EMBEDDING_MODEL_NAME = 'models/text-embedding-004' # Modelo de Google
 LLM_NAME = 'gemini-flash-latest'
+MODEL_DIMENSION = 768 # ¡Importante!
 
 # Constantes de la colección de Milvus (deben coincidir con index_milvus.py)
 COLLECTION_NAME = "taller_rag_corpus"
@@ -44,9 +45,8 @@ models = {}
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("Iniciando API...")
-    print(f"Cargando modelo de embeddings: {EMBEDDING_MODEL_NAME}")
-    models["embedding_model"] = SentenceTransformer(EMBEDDING_MODEL_NAME)
     
+    load_dotenv()
     # 2. Configurar y cargar el LLM de Google
     print(f"Configurando modelo generador (LLM) de Google: {LLM_NAME}")
     try:
@@ -79,9 +79,15 @@ async def lifespan(app: FastAPI):
         )
         print("Modelo Generador de Google cargado.")
         
+        # 2. Configurar el modelo de Embeddings de Google
+        #    (Ya no cargamos SentenceTransformer)
+        print(f"Configurando modelo de embeddings de Google: {EMBEDDING_MODEL_NAME}")
+        models["embedding_model"] = EMBEDDING_MODEL_NAME # Solo guardamos el nombre
+        
     except Exception as e:
         print(f"Error fatal al cargar el modelo de Google: {e}")
         models["llm_model"] = None 
+        models["embedding_model"] = None
         
     print("Conectando a Milvus...")
     connections.connect(alias=MILVUS_ALIAS, host=MILVUS_HOST, port=MILVUS_PORT)
@@ -163,12 +169,21 @@ def rag_with_solr(query: str, k: int) -> List[SourceDocument]:
 def rag_with_milvus(query: str, k: int) -> List[SourceDocument]:
     print(f"Recuperando (Milvus) k={k} para: '{query}'")
     try:
-        collection = models.get("milvus_collection")
-        if collection is None:
-            raise Exception("Colección de Milvus no está cargada.")
+        collection = models.get("milvus_collection")    
+        model_name = models.get("embedding_model")
+        if collection is None or model_name is None:
+            raise Exception("Colección de Milvus o modelo de embedding no cargado.")            
             
-        # 1. Generar embedding del query [cite: 185]
-        query_vector = models["embedding_model"].encode([query])
+        # 1. Generar embedding del query (USANDO LA API DE GOOGLE)
+        #    Usamos 'retrieval_query' para la tarea de consulta
+        start_embed = time.time()
+        result = genai.embed_content(
+            model=model_name,
+            content=query,
+            task_type="retrieval_query"
+        )
+        query_vector = [result['embedding']] # La API devuelve un vector, lo ponemos en una lista
+        print(f"Embedding de consulta generado en {time.time() - start_embed:.4f}s")
         
         # 2. Ejecutar búsqueda de similitud [cite: 186]
         search_params = {

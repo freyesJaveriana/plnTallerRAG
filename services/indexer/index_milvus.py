@@ -3,6 +3,8 @@ from pymilvus import connections, utility, FieldSchema, CollectionSchema, DataTy
 from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 import time
+from dotenv import load_dotenv
+import google.generativeai as genai
 
 # --- Constantes y Variables de Entorno ---
 MILVUS_HOST = os.getenv("MILVUS_HOST", "localhost")
@@ -17,8 +19,9 @@ MILVUS_ALIAS = "default" # Alias de la conexión
 # 'paraphrase-multilingual-MiniLM-L12-v2' es bueno para multilingüe
 # y tiene una dimensión de 384.
 # ***************************************************************
-MODEL_NAME = 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
-MODEL_DIMENSION = 384
+MODEL_NAME = 'models/text-embedding-004' # Modelo de Google
+MODEL_DIMENSION = 768                    # ¡Nueva dimensión!
+
 COLLECTION_NAME = "taller_rag_corpus"
 ID_FIELD_NAME = "doc_id"
 TEXT_FIELD_NAME = "text_content"
@@ -116,6 +119,22 @@ def create_milvus_collection():
     
     return collection
 
+def embed_content_batch(model, texts: list) -> list:
+    """Genera embeddings para un lote de textos usando la API de Google."""
+    # La API de Google es más eficiente en lotes
+    try:
+        # Usamos 'embed_content' para la tarea de "retrieval_document"
+        result = genai.embed_content(
+            model=MODEL_NAME,
+            content=texts,
+            task_type="retrieval_document"
+        )
+        return result['embedding']
+    except Exception as e:
+        print(f"Error al generar embedding: {e}")
+        # Devuelve un vector nulo del tamaño correcto si falla
+        return [[0.0] * MODEL_DIMENSION] * len(texts)
+        
 def index_data_in_milvus(data_df):
     """
     Función principal para indexar datos en Milvus.
@@ -127,14 +146,19 @@ def index_data_in_milvus(data_df):
     if not wait_for_milvus():
         print("Asegúrese de que el contenedor 'milvus' esté corriendo ('docker-compose ps').")
         return
+    load_dotenv()
+    
+    api_key = os.getenv("GOOGLE_API_KEY")
+    
+    if not api_key:
+        raise ValueError("GOOGLE_API_KEY no encontrada. Asegúrate de definirla en el .env")
+        
+    genai.configure(api_key=api_key)
+        
+    print(f"Cargando modelo de embeddings de Google: '{MODEL_NAME}'...")
+    model = MODEL_NAME # El modelo es solo un string de referencia
     
     connections.connect(alias=MILVUS_ALIAS, host=MILVUS_HOST, port=MILVUS_PORT)
-    
-    # 2. Cargar modelo de Embeddings
-    print(f"Cargando modelo de embeddings: '{MODEL_NAME}'...")
-    # (device='cuda') si tienes GPU disponible y torch con CUDA
-    model = SentenceTransformer(MODEL_NAME, device='cpu')
-    print("Modelo cargado.")
 
     # 3. Obtener/Crear Colección
     collection = create_milvus_collection()
@@ -164,7 +188,7 @@ def index_data_in_milvus(data_df):
                 source_batch = batch['source_document'].astype(str).tolist() # <-- AÑADIDO
                 
                 # Generar embeddings
-                embeddings_batch = model.encode(text_batch)
+                embeddings_batch = embed_content_batch(model, text_batch)
                 
                 # Preparar datos para Milvus (de acuerdo al esquema)
                 entities = [
@@ -176,6 +200,11 @@ def index_data_in_milvus(data_df):
                 
                 # Insertar en Milvus
                 collection.insert(entities)
+                
+                # Respetar el límite de 1000 RPM (1000/60 = ~16 solicitudes/seg)
+                # Damos un margen de seguridad. 100 docs / 1 req.
+                # No necesitamos dormir si el lote es de 100.
+                time.sleep(0.1) # Un pequeño respiro
             
             # 'Flush' final para asegurar que se escriban los datos
             collection.flush()

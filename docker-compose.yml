@@ -92,6 +92,7 @@ services:
     build:
       context: ./services/indexer
     container_name: indexer-script
+    env_file: .env
     volumes:
       - ./services/indexer:/app
       - ./data:/data

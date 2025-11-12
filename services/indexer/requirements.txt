@@ -8,3 +8,5 @@ torch
 tqdm
 # Necesario para la segmentación (chunking) en oraciones
 nltk
+google-generativeai
+dotenv
