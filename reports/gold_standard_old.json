@@ -1,0 +1,1029 @@
+[
+  {
+    "query": "¿Cuáles son los tres pilares del Sistema Integral para la Paz establecidos en el acuerdo de 2016 y cuál fue el periodo de funcionamiento original de la Comisión para el Esclarecimiento de la Verdad?",
+    "relevant_chunk_ids": [
+      "01-prólogo.txt_0003",
+      "01-prólogo.txt_0004"
+    ],
+    "ideal_answer": "Los tres pilares del Sistema Integral para la Paz son la Comisión para el Esclarecimiento de la Verdad (CEV), la Jurisdicción Especial para la Paz (JEP) y la Unidad de Búsqueda de Personas Dadas por Desaparecidas (UBPD). El periodo inicial de funcionamiento de la comisión fue de tres años a partir de mayo de 2018.",
+    "source_chapter": "01-prólogo.txt"
+  },
+  {
+    "query": "¿Cuál fue la pregunta macro que orientó la investigación de la Comisión de la Verdad y a qué sectores extendió la responsabilidad ética y política del conflicto armado, además de a quienes empuñaron las armas?",
+    "relevant_chunk_ids": [
+      "01-prólogo.txt_0013",
+      "01-prólogo.txt_0014",
+      "01-prólogo.txt_0017",
+      "01-prólogo.txt_0018"
+    ],
+    "ideal_answer": "La pregunta macro fue: ¿por qué, a pesar de los múltiples acuerdos y procesos de paz, el conflicto armado no logra cerrarse completamente y, en cambio, se recicla? La Comisión extendió la responsabilidad ética y política, y en algunos casos directa, a sectores políticos (de todas las ideologías), económicos, criminales, sociales y culturales.",
+    "source_chapter": "01-prólogo.txt"
+  },
+  {
+    "query": "¿De cuántos tomos y qué tipo de documento complementario consta el informe final, y cuáles son dos grupos o temas específicos que el texto menciona que tienen un tomo dedicado a visibilizar sus impactos diferenciados en el conflicto?",
+    "relevant_chunk_ids": [
+      "01-prólogo.txt_0019"
+    ],
+    "ideal_answer": "El informe final consta de diez tomos y una declaración, denominada 'a la paz grande'. Dos grupos que tienen tomos dedicados a visibilizar sus impactos diferenciados son los pueblos étnicos de Colombia y las mujeres y personas lgbtiq+ en el conflicto armado.",
+    "source_chapter": "01-prólogo.txt"
+  },
+  {
+    "query": "¿Qué tipos de información y variables específicas utilizó la Comisión de la Verdad, provenientes de sus bases de datos internas (SIM), para ilustrar las problemáticas y contextos del conflicto armado?",
+    "relevant_chunk_ids": [],
+    "ideal_answer": "La Comisión de la Verdad utilizó datos del SIM (Sistema de Información Misional) para ilustrar problemáticas como el gasto público, la dinámica del conflicto, la dimensión de la victimización, las áreas sembradas con cultivos de coca y la información disponible sobre el tráfico de cocaína, la movilización social y la participación electoral.",
+    "source_chapter": "02-introducción.txt"
+  },
+  {
+    "query": "Identifique las 'grietas o fallas geológicas' en la construcción de la nación mencionadas por los ensayistas de la CHCV como origen del conflicto, y las violencias estructurales adicionales que la Comisión de la Verdad sumó a este análisis.",
+    "relevant_chunk_ids": [
+      "02-introducción.txt_0009",
+      "02-introducción.txt_0010"
+    ],
+    "ideal_answer": "Los ensayistas de la CHCV mencionaron la cuestión agraria, la debilidad institucional, la honda desigualdad de ingresos, la tendencia al uso simultáneo de las armas y las urnas, y la presencia precaria o traumática del estado. La Comisión de la Verdad sumó el patriarcado, el racismo y las múltiples discriminaciones por clase social, región o corrientes de pensamiento.",
+    "source_chapter": "02-introducción.txt"
+  },
+  {
+    "query": "¿Cuál fue el principal logro político alcanzado al finalizar el Segundo Periodo (1978-1991) y cómo se contrasta la configuración de los actores armados y la reacción a la apertura democrática en el Tercer Periodo (1991-2002)?",
+    "relevant_chunk_ids": [
+      "02-introducción.txt_0038",
+      "02-introducción.txt_0039",
+      "02-introducción.txt_0040",
+      "02-introducción.txt_0041"
+    ],
+    "ideal_answer": "El principal logro político al finalizar el Segundo Periodo fue la Asamblea Nacional Constituyente (ANC), que representó un pacto nacional pluralista y enrutado hacia una democracia liberal. En contraste, el Tercer Periodo se caracterizó por una reacción violenta a esta apertura democrática, resultando en una violencia exacerbada por parte de las guerrillas que permanecieron en armas, los paramilitares narcotraficantes y las fuerzas militares. Además, durante este periodo se consolidó la AUC como un proyecto nacional.",
+    "source_chapter": "02-introducción.txt"
+  },
+  {
+    "query": "¿Cuál fue la dinámica de la relación bilateral entre Colombia y Estados Unidos a partir de la década de 1920, y qué compromiso tuvo que adquirir el estado colombiano para asegurar la inversión extranjera?",
+    "relevant_chunk_ids": [
+      "03-Antecedentes históricos (1920-1958).txt_0005",
+      "03-Antecedentes históricos (1920-1958).txt_0006"
+    ],
+    "ideal_answer": "A partir de los años veinte, Colombia consolidó un reacercamiento hacia Estados Unidos, manteniendo su política exterior enfocada en Washington. En esta década, Colombia recibió 25 millones de dólares como reparación por la pérdida de Panamá y accedió a millonarios empréstitos (cercanos a 280 millones de dólares) destinados principalmente a construir vías de comunicación. A cambio de esta financiación, el estado colombiano se comprometió a darle vía libre a la inversión estadounidense.",
+    "source_chapter": "03-Antecedentes históricos (1920-1958).txt"
+  },
+  {
+    "query": "Describa las características de las 'economías de enclave' impulsadas en Colombia por inversionistas extranjeros y ponga un ejemplo de cómo se manifestaba la segregación social en estos campamentos.",
+    "relevant_chunk_ids": [
+      "03-Antecedentes históricos (1920-1958).txt_0008",
+      "03-Antecedentes históricos (1920-1958).txt_0009",
+      "03-Antecedentes históricos (1920-1958).txt_0010"
+    ],
+    "ideal_answer": "Las economías de enclave fueron parte de las estrategias del capitalismo industrial impulsadas por inversionistas europeos y estadounidenses. Sus criterios de inserción en territorios extranjeros incluían el manejo de materias primas (petróleo, oro, banano, etc.), el montaje de infraestructuras (vías férreas, puertos, campamentos) y la imposición del consumo de mercancías, contando con el respaldo jurídico de las concesiones. La segregación social se manifestó en que estos enclaves ofrecían bienes y servicios inexistentes en los pueblos adyacentes. Un ejemplo extremo fue el de la Tropical Oil Company (Troco) en el Magdalena Medio, que construyó un campo de golf y una sala de baile, una infraestructura a la que no tenían acceso trabajadores ni pobladores, siendo recordado como un 'apartheid rural'.",
+    "source_chapter": "03-Antecedentes históricos (1920-1958).txt"
+  },
+  {
+    "query": "Explique el papel del anticomunismo y la frustración agraria en la escalada del conflicto social y político colombiano entre las décadas de 1930 y 1950, y cómo se transformaron los grupos armados durante este periodo de violencia.",
+    "relevant_chunk_ids": [
+      "03-Antecedentes históricos (1920-1958).txt_0016",
+      "03-Antecedentes históricos (1920-1958).txt_0017",
+      "03-Antecedentes históricos (1920-1958).txt_0018"
+    ],
+    "ideal_answer": "La frustración se generó porque la reforma agraria promovida por el gobierno liberal fue vetada y posteriormente enterrada por sectores de las élites regionales, lo que, sumado a la insatisfacción social y el persistente anticomunismo, gestó un nuevo conflicto político. La transición traumática del poder en 1946 y el asesinato de Jorge Eliécer Gaitán en 1948 exacerbaron los odios bipartidistas, combinándose con el conflicto social y llevando a la represión gubernamental y al cierre democrático. En este contexto, la violencia bipartidista mutó: las cuadrillas de guerrilleros liberales que no se acogieron a la amnistía fueron proscritas por su propio partido, al igual que los grupos conservadores ('pájaros' y 'chulavitas'). Paralelamente, el Partido Comunista orientó la creación de autodefensas asentadas en regiones como Sumapaz, las cuales fueron calificadas y tratadas como 'bandoleros' y criminales.",
+    "source_chapter": "03-Antecedentes históricos (1920-1958).txt"
+  },
+  {
+    "query": "¿De qué manera la incapacidad del estado colombiano para solucionar el problema de la propiedad se combinó con una legislación específica y el poder de los hacendados para facilitar el despojo de tierras?",
+    "relevant_chunk_ids": [
+      "04-El miedo al comunismo.txt_0001",
+      "04-El miedo al comunismo.txt_0002",
+      "04-El miedo al comunismo.txt_0003",
+      "04-El miedo al comunismo.txt_0007",
+      "04-El miedo al comunismo.txt_0008"
+    ],
+    "ideal_answer": "El estado fue incapaz de resolver el problema de la propiedad, permitiendo que pocos se adueñaran de las tierras más productivas. Esta situación se agravó con leyes como la 55 de 1905, que cedió tierras de antiguos resguardos a municipios para ser rematadas a particulares con poder económico y político. Además, los hacendados utilizaban su posición como representantes políticos (alcaldes, notarios, jueces) y el apoyo de la Iglesia Católica, para apropiarse de terrenos baldíos y respaldar sus usurpaciones con apoyo jurídico y político, logrando que apropiaciones que eran ilegales fueran aprobadas por el sistema judicial.",
+    "source_chapter": "04-El miedo al comunismo.txt"
+  },
+  {
+    "query": "¿Qué condiciones de explotación laboral existían en el enclave de la United Fruit Company en Ciénaga que impulsaron la huelga de 1928, y de qué manera el gobierno reprimió el movimiento social después de la masacre inicial?",
+    "relevant_chunk_ids": [
+      "04-El miedo al comunismo.txt_0019",
+      "04-El miedo al comunismo.txt_0023",
+      "04-El miedo al comunismo.txt_0024"
+    ],
+    "ideal_answer": "Las multinacionales contrataban a destajo. Los hombres trabajaban 16 horas diarias, llegando a cortar casi 400 racimos de plátano al día. Las mujeres también eran parte de la huelga, pues trabajaban sin salario cocinando para 35.000 personas. Tras la Masacre de las Bananeras, el ejército desató una persecución de 120 días, disparando y matando indiscriminadamente. Saquearon la casa sindical, la imprenta y la cooperativa, y dispusieron consejos de guerra verbales por indicación de los agentes de la compañía frutera, juzgando a 136 sobrevivientes (incluyendo varias mujeres), maquinistas, periodistas y profesores con penas de hasta 25 años.",
+    "source_chapter": "04-El miedo al comunismo.txt"
+  },
+  {
+    "query": "¿Cómo interpretó el gobierno conservador del presidente Miguel Abadía Méndez el auge de las corrientes socialistas y los liderazgos populares, y qué acciones represivas concretas se implementaron entre 1927 y 1930?",
+    "relevant_chunk_ids": [
+      "04-El miedo al comunismo.txt_0015",
+      "04-El miedo al comunismo.txt_0016",
+      "04-El miedo al comunismo.txt_0017",
+      "04-El miedo al comunismo.txt_0018"
+    ],
+    "ideal_answer": "El gobierno conservador del presidente Miguel Abadía Méndez interpretó el despertar social y la ebullición de corrientes socialistas como una \"conspiración del comunismo internacional\" o el \"peligro bolchevique\", creyendo que las ideas disolventes de la Rusia del Soviet estaban germinando en Colombia. Este temor llevó a la expedición de decretos y leyes desde 1927 que prohibieron las reuniones, la libertad de prensa, la posesión de armas, las ideas socialistas y la movilización. Además, se tildó de comunistas a las expresiones de descontento (incluso a las que pedían el cumplimiento de la ley por parte de multinacionales), se impuso la cárcel y el cepo, y se detenía, golpeaba, desterraba o expulsaba (si eran extranjeros) a los líderes de las ligas agrarias.",
+    "source_chapter": "04-El miedo al comunismo.txt"
+  },
+  {
+    "query": "¿Cómo evolucionó la política agraria durante la República Liberal, pasando de la Ley 200 de 1936, y qué consecuencia tuvo su posterior modificación con la Ley 100 de 1944?",
+    "relevant_chunk_ids": [
+      "05-Reformas inconclusas.txt_0009",
+      "05-Reformas inconclusas.txt_0017",
+      "05-Reformas inconclusas.txt_0018"
+    ],
+    "ideal_answer": "La Ley 200 de 1936 marcó un hito al reconocer la función social de la propiedad, pero sus alcances estaban dirigidos a la modernización y productividad, no a una reforma agraria redistributiva. Esta tendencia perpetuó la acumulación de tierra. La posibilidad de reforma agraria fue enterrada con la Ley 100 de 1944, que validó los contratos de aparcería y agregados, lo cual acarreó una profunda frustración en las décadas siguientes.",
+    "source_chapter": "05-Reformas inconclusas.txt"
+  },
+  {
+    "query": "¿Quiénes conformaron la oposición a las reformas de Alfonso López Pumarejo durante la 'revolución en marcha', y cuál fue el resultado principal de esa oposición en términos de política gubernamental?",
+    "relevant_chunk_ids": [
+      "05-Reformas inconclusas.txt_0014",
+      "05-Reformas inconclusas.txt_0015",
+      "05-Reformas inconclusas.txt_0016"
+    ],
+    "ideal_answer": "La oposición provino de la iglesia, los conservadores (liderados por Laureano Gómez), miembros del propio partido liberal, y los empresarios. Se organizaron también en la Asociación Patriótica Económica Nacional (APEN), conformada por acaudalados liberales y conservadores. El resultado fue que este entramado logró imponer su veto a las reformas, obligando a López Pumarejo a declarar una pausa en la 'revolución en marcha' al finalizar su primer gobierno.",
+    "source_chapter": "05-Reformas inconclusas.txt"
+  },
+  {
+    "query": "¿Cuál era la noción colonial del territorio que predominó sobre regiones como la Amazonía, y qué evidencia demográfica registra el texto sobre el impacto de esta visión en los pueblos étnicos de Meta y Vichada?",
+    "relevant_chunk_ids": [
+      "05-Reformas inconclusas.txt_0024",
+      "05-Reformas inconclusas.txt_0025",
+      "05-Reformas inconclusas.txt_0026",
+      "05-Reformas inconclusas.txt_0027"
+    ],
+    "ideal_answer": "La noción colonial representaba a estas regiones como tierras de nadie, salvajes, o espacios vacíos disponibles para la colonización, la evangelización y la extracción de materias primas, en oposición a las zonas andinas consideradas civilizadas. La evidencia demográfica consigna el exterminio de los pueblos étnicos en Meta y Vichada, donde la población se redujo drásticamente de 27.981 personas en 1938 a 2.277 en 1951.",
+    "source_chapter": "05-Reformas inconclusas.txt"
+  },
+  {
+    "query": "¿Cómo influyó la división del Partido Liberal en las elecciones de 1946, que resultó en la victoria del conservador Mariano Ospina Pérez, en el recrudecimiento de la violencia regional y la práctica de la 'limpieza política'?",
+    "relevant_chunk_ids": [
+      "06-La violencia como política.txt_0004",
+      "06-La violencia como política.txt_0008"
+    ],
+    "ideal_answer": "La división del voto liberal entre Gabriel Turbay y Jorge Eliécer Gaitán permitió que ganara el conservador Mariano Ospina Pérez, a pesar de que los liberales sumados eran mayoría. Este cambio de régimen conllevó a que los conservadores iniciaran la 'limpieza política', una práctica de desterrar a los opositores (liberales) del lugar, lo que resultó en que muchos campesinos liberales perdieran sus tierras y tuvieran que exiliarse.",
+    "source_chapter": "06-La violencia como política.txt"
+  },
+  {
+    "query": "Además de la polarización bipartidista tradicional, ¿qué ideologías extranjeras influyeron en el sectarismo colombiano en los años 30 y 40, y cómo contrastó la interpretación que Jorge Eliécer Gaitán hacía de la agitación social con la visión anticomunista predominante?",
+    "relevant_chunk_ids": [
+      "06-La violencia como política.txt_0002",
+      "06-La violencia como política.txt_0011",
+      "06-La violencia como política.txt_0012"
+    ],
+    "ideal_answer": "El sectarismo crecía influenciado por el flujo de ideas del franquismo y el fascismo, en particular la noción de pureza de raza, compartida por élites que veían la raza latinoamericana como inferior debido a sus componentes indígena y negro. Mientras que la visión predominante interpretaba la agitación social como un complot del comunismo internacional, Gaitán fue uno de los primeros políticos en leer esa agitación como una expresión de desigualdad y exclusión.",
+    "source_chapter": "06-La violencia como política.txt"
+  },
+  {
+    "query": "Detalle la transformación del levantamiento en Barrancabermeja después del magnicidio de Gaitán, explicando el apoyo previo del líder a la región y cómo el movimiento espontáneo se consolidó en una estructura de 'poder popular'.",
+    "relevant_chunk_ids": [
+      "06-La violencia como política.txt_0030",
+      "06-La violencia como política.txt_0031",
+      "06-La violencia como política.txt_0032"
+    ],
+    "ideal_answer": "Tres meses antes de su muerte, Gaitán había apoyado decididamente una huelga en Barrancabermeja que buscaba la nacionalización del petróleo. Tras el crimen, los pobladores salieron a la calle atacando conservadores y pidiendo la caída del gobierno. Esta manifestación espontánea se transformó rápidamente en un movimiento organizado, liderado por trabajadores petroleros bajo la consigna del 'poder popular'. Así se consolidó la 'comuna de barranca', articulada en una junta revolucionaria con un alcalde popular (Rafael Rangel Gómez) y milicias obreras.",
+    "source_chapter": "06-La violencia como política.txt"
+  },
+  {
+    "query": "¿Cuál fue la responsabilidad de los partidos Liberal y Conservador en el desarrollo de la Violencia, y cómo se manifestó la extrema polarización en el Congreso durante 1949?",
+    "relevant_chunk_ids": [
+      "07-Violencia que engendra violencia.txt_0006",
+      "07-Violencia que engendra violencia.txt_0007",
+      "07-Violencia que engendra violencia.txt_0008"
+    ],
+    "ideal_answer": "Los partidos tradicionales contribuyeron a la violencia al alimentar formas de identidad homogéneas y sectarias, fomentando una cultura política intolerante que veía al adversario como un enemigo con el que no se podía transigir. La polarización extrema en 1949 resultó en el asesinato del representante a la cámara por el partido liberal, Gustavo Jiménez, y posteriormente, en el cierre del congreso (que duró nueve años) y la instauración de la dictadura civil por Mariano Ospina Pérez.",
+    "source_chapter": "07-Violencia que engendra violencia.txt"
+  },
+  {
+    "query": "Explique las diferencias ideológicas y de métodos entre los grupos de 'limpios' y 'comunes' que surgieron de la división de los resistentes en El Davis.",
+    "relevant_chunk_ids": [
+      "07-Violencia que engendra violencia.txt_0016"
+    ],
+    "ideal_answer": "La división se dio en 1951: los 'limpios' eran liberales leales a las directivas del partido, mientras que los 'comunes' habían transitado hacia la militancia comunista. En cuanto a la convivencia, los 'limpios' rechazaban la vida comunitaria y la privación de la propiedad privada, que los 'comunes' sí organizaban colectivamente. Respecto a la violencia, los 'limpios' usaban métodos similares a los chulavitas para perseguir conservadores, mientras que los 'comunes' se enfocaban en la defensa contra las fuerzas oficiales y la lucha de clases.",
+    "source_chapter": "07-Violencia que engendra violencia.txt"
+  },
+  {
+    "query": "Describa el impacto que tuvo la participación de Colombia en la Guerra de Corea sobre su estamento militar y cómo esta experiencia se relacionó con la ofensiva de 1953 en los llanos orientales.",
+    "relevant_chunk_ids": [
+      "07-Violencia que engendra violencia.txt_0026",
+      "07-Violencia que engendra violencia.txt_0027",
+      "07-Violencia que engendra violencia.txt_0028"
+    ],
+    "ideal_answer": "La participación en la Guerra de Corea (1951-1954) modernizó las concepciones tácticas y estratégicas de los militares colombianos, contribuyó a su profesionalización, los distanció de la política y los inscribió en la doctrina anticomunista. Esta experiencia fue útil para la ofensiva militar de 1953 en los llanos orientales, la cual se apoyó en un embarque de fusiles M1 y cazabombarderos recibidos de Estados Unidos como ayuda en el marco de un tratado bilateral de 1952.",
+    "source_chapter": "07-Violencia que engendra violencia.txt"
+  },
+  {
+    "query": "¿Cuál fue el lema inicial de la amnistía decretada por Rojas Pinilla al llegar al poder, y cómo se contrapone este espíritu a las acciones represivas posteriores implementadas en la región de Sumapaz, como los 'centros de trabajo'?",
+    "relevant_chunk_ids": [
+      "08-Una dictadura inducida.txt_0002",
+      "08-Una dictadura inducida.txt_0015"
+    ],
+    "ideal_answer": "El lema inicial de la amnistía fue \"paz, justicia y libertad para todos\". Esto contrasta con las acciones represivas en Sumapaz (zona de operaciones militares, toque de queda, ley seca) y la creación de los centros de trabajo, descritos como \"corrales al sol y al agua cercados de alambre de púas electrificados\" para detener a personas acusadas de ser comunistas.",
+    "source_chapter": "08-Una dictadura inducida.txt"
+  },
+  {
+    "query": "Describe la estrategia que el Partido Comunista Colombiano (PCC) adoptó ante su ilegalización en 1954 y la persecución, incluyendo qué acciones recomendó a las guerrillas bajo su influencia.",
+    "relevant_chunk_ids": [
+      "08-Una dictadura inducida.txt_0004",
+      "08-Una dictadura inducida.txt_0006"
+    ],
+    "ideal_answer": "El PCC fue ilegalizado en 1954. La decisión fue, según Gilberto Vieira, aconsejar a las guerrillas de influencia comunista que suspendieran la lucha armada sin entregar las armas y se dedicaran a la organización de las masas campesinas mediante la fórmula de la autodefensa.",
+    "source_chapter": "08-Una dictadura inducida.txt"
+  },
+  {
+    "query": "¿Cuáles fueron los acuerdos centrales establecidos por los dirigentes Liberales y Conservadores en el Pacto del Frente Nacional, y cuál fue la situación del Partido Comunista Colombiano (PCC) respecto a este acuerdo y la pacificación subsecuente?",
+    "relevant_chunk_ids": [],
+    "ideal_answer": "Los acuerdos centrales fueron la alternancia de la presidencia y el reparto paritario de los puestos legislativos y judiciales durante un período de doce años (luego dieciséis). Aunque el PCC no fue invitado a participar del acuerdo, lo apoyó, lo cual le devolvió su carácter legal. Respecto a la pacificación ofrecida por la junta militar, los comunistas se acogieron sin entregar las armas, dado que habían observado el asesinato de líderes liberales que sí lo habían hecho.",
+    "source_chapter": "08-Una dictadura inducida.txt"
+  },
+  {
+    "query": "¿Cuáles son las estimaciones de víctimas mortales registradas para los periodos 1948-1958 y 1949-1958, según el libro mencionado y el estudio econométrico de 2019, respectivamente?",
+    "relevant_chunk_ids": [
+      "09-¿Quién perdió_.txt_0000",
+      "09-¿Quién perdió_.txt_0001"
+    ],
+    "ideal_answer": "El libro estima que murieron 134.820 personas entre 1948 y 1958, cifra que eleva a 200.000 a partir de una estimación de personas heridas o desplazadas. En contraste, el estudio econométrico de 2019 estima 57.737 víctimas mortales para el periodo 1949-58, cifra que se reduce a 39.142 usando supuestos más conservadores.",
+    "source_chapter": "09-¿Quién perdió_.txt"
+  },
+  {
+    "query": "Describa la secuencia de actos sanguinarios que se realizaban a los cadáveres de las víctimas tras su muerte biológica durante las masacres, y mencione cuál era la forma de tortura previa más común.",
+    "relevant_chunk_ids": [
+      "09-¿Quién perdió_.txt_0006",
+      "09-¿Quién perdió_.txt_0007"
+    ],
+    "ideal_answer": "Tras la muerte biológica de las víctimas (generalmente por un tiro que causaba anemia aguda), los cadáveres eran 'contramatados' decapitándolos. Finalmente, se procedía a 'rematarlos' efectuándoles una serie de cortes posmortem que terminaban por desmembrar el cuerpo. La tortura previa más común era amarrar a las víctimas con los brazos por detrás y violar a las mujeres de la casa delante de los hombres.",
+    "source_chapter": "09-¿Quién perdió_.txt"
+  },
+  {
+    "query": "A pesar de que los campesinos fueron identificados como los grandes perdedores de la guerra, ¿qué evidencia presenta el texto sobre la prosperidad económica experimentada por el sector cafetero entre 1944 y 1957?",
+    "relevant_chunk_ids": [
+      "09-¿Quién perdió_.txt_0009",
+      "09-¿Quién perdió_.txt_0010",
+      "09-¿Quién perdió_.txt_0011",
+      "09-¿Quién perdió_.txt_0012"
+    ],
+    "ideal_answer": "Mientras los campesinos fueron los grandes perdedores, agentes económicos como los comerciantes de café vivieron uno de los mayores periodos de prosperidad. Para 1956, las exportaciones del grano superaron el 80% de las exportaciones del país hacia Estados Unidos, y el precio del café se disparó de 16 centavos de dólar la libra en 1944 a 69,9 centavos para 1957.",
+    "source_chapter": "09-¿Quién perdió_.txt"
+  },
+  {
+    "query": "¿Cuáles fueron los ocho procesos concurrentes que explican el origen de la guerra insurgente y contrainsurgente, según el reconocimiento de la Comisión de la Verdad?",
+    "relevant_chunk_ids": [
+      "10-De la paz política a la guerra insurgente (1958-1978).txt_0006"
+    ],
+    "ideal_answer": "Los procesos concurrentes incluyen: 1) ausencia de competencia electoral para el manejo del poder; 2) reparto clientelista de los recursos del estado; 3) nueva frustración con la reforma agraria; 4) autonomía militar que desencadenó en represión; 5) injerencia directa de Estados Unidos; 6) consecuencias regionales de la Guerra Fría; 7) surgimiento de una ciudadanía urbana no alineada; y 8) fraude y corrupción.",
+    "source_chapter": "10-De la paz política a la guerra insurgente (1958-1978).txt"
+  },
+  {
+    "query": "¿Cómo se dividen las valoraciones de los ensayistas de la CHCV respecto al significado del Frente Nacional en el contexto del régimen político colombiano?",
+    "relevant_chunk_ids": [
+      "10-De la paz política a la guerra insurgente (1958-1978).txt_0002",
+      "10-De la paz política a la guerra insurgente (1958-1978).txt_0003",
+      "10-De la paz política a la guerra insurgente (1958-1978).txt_0004"
+    ],
+    "ideal_answer": "Algunos ensayistas lo consideran una democracia simulada y un pacto bipartidista que unificó a la clase dominante, sin un cambio sustancial respecto al sistema oligárquico anterior. Otros señalan que, a pesar de ser excluyente y reforzar figuras de seguridad privada, logró normalizar el país y crear un estado moderno por encima de los partidos.",
+    "source_chapter": "10-De la paz política a la guerra insurgente (1958-1978).txt"
+  },
+  {
+    "query": "¿Qué consecuencias tuvo el sesgo del Frente Nacional contra actores políticos y sociales, y qué opción adoptaron algunas de las izquierdas nacientes como resultado de la asfixia democrática?",
+    "relevant_chunk_ids": [
+      "10-De la paz política a la guerra insurgente (1958-1978).txt_0001",
+      "10-De la paz política a la guerra insurgente (1958-1978).txt_0007"
+    ],
+    "ideal_answer": "El sesgo en el arreglo bipartidista radicalizó la percepción en algunos sectores, como el Partido Comunista Colombiano (PCC) y líderes agrarios, de que las armas eran el único camino para obtener reformas. La asfixia democrática impulsó a varias nacientes izquierdas a iniciar un ciclo de guerra insurgente para la toma del poder, aunque otras expresiones optaron por mantenerse en la arena política sin recurrir a la violencia.",
+    "source_chapter": "10-De la paz política a la guerra insurgente (1958-1978).txt"
+  },
+  {
+    "query": "¿Cuáles fueron los dos modelos mundiales que surgieron de la Segunda Guerra Mundial, y qué métodos privilegiados de lucha caracterizaron la nueva 'guerra preventiva' simbolizada por el Muro de Berlín?",
+    "relevant_chunk_ids": [
+      "11-Los paradigmas de la Guerra Fría.txt_0001",
+      "11-Los paradigmas de la Guerra Fría.txt_0002",
+      "11-Los paradigmas de la Guerra Fría.txt_0003"
+    ],
+    "ideal_answer": "El mundo se dividió en el modelo capitalista y democrático liberal (liderado por Estados Unidos) y el socialista y comunista (liderado por la Unión Soviética y China). La nueva guerra preventiva, diferente a conflictos anteriores, se caracterizó por el espionaje, la propaganda, las conspiraciones y la presión económica y política.",
+    "source_chapter": "11-Los paradigmas de la Guerra Fría.txt"
+  },
+  {
+    "query": "¿Qué potencias occidentales construyeron un cuerpo doctrinario de técnicas contrainsurgentes y qué territorios específicos fueron utilizados como laboratorios por Gran Bretaña, Francia y Estados Unidos?",
+    "relevant_chunk_ids": [
+      "11-Los paradigmas de la Guerra Fría.txt_0004",
+      "11-Los paradigmas de la Guerra Fría.txt_0005"
+    ],
+    "ideal_answer": "Las potencias occidentales que tenían colonias construyeron el cuerpo doctrinario. Los territorios usados como laboratorios fueron: Malasia y Kenia (por Gran Bretaña); Argelia e Indochina (Francia), y Corea y Vietnam (Estados Unidos).",
+    "source_chapter": "11-Los paradigmas de la Guerra Fría.txt"
+  },
+  {
+    "query": "Tras el triunfo de la Revolución Cubana en 1959, ¿qué acciones estadounidenses llevaron a Castro a buscar apoyo de la URSS, y qué táctica de lucha armada fue aplicada por el Che Guevara en Cuba y propuesta para los Andes?",
+    "relevant_chunk_ids": [
+      "11-Los paradigmas de la Guerra Fría.txt_0008",
+      "11-Los paradigmas de la Guerra Fría.txt_0009",
+      "11-Los paradigmas de la Guerra Fría.txt_0013"
+    ],
+    "ideal_answer": "Estados Unidos declaró la revolución una amenaza, impuso el embargo político y económico y, en 1961, apoyó la invasión en la Bahía de Cochinos, lo cual llevó a Castro a buscar el apoyo de la URSS y declarar a Cuba como socialista. El Che Guevara aplicó la táctica del foquismo, buscando ubicar puntos estratégicos para la lucha armada a lo largo de la cordillera de los Andes.",
+    "source_chapter": "11-Los paradigmas de la Guerra Fría.txt"
+  },
+  {
+    "query": "Según el texto, ¿cuáles fueron los tres principales desafíos que enfrentó el Frente Nacional al inicio del gobierno de Alberto Lleras Camargo?",
+    "relevant_chunk_ids": [
+      "12-Pacificación sin paz.txt_0000",
+      "12-Pacificación sin paz.txt_0001",
+      "12-Pacificación sin paz.txt_0002"
+    ],
+    "ideal_answer": "Los tres principales desafíos fueron: la falta de lealtad garantizada de los militares (evidenciada por un intento de golpe de estado), la persistencia de la violencia (con aproximadamente 200 grupos armados, mayormente bandoleros), y la destrucción física y moral del sector rural en el centro del país.",
+    "source_chapter": "12-Pacificación sin paz.txt"
+  },
+  {
+    "query": "¿Cuál fue el contenido fundamental del llamado 'segundo pacto del frente nacional' articulado por Lleras Camargo en el discurso del Teatro Patria, y qué ambigüedad originó esta delegación en el manejo de los conflictos sociales?",
+    "relevant_chunk_ids": [
+      "12-Pacificación sin paz.txt_0012",
+      "12-Pacificación sin paz.txt_0013",
+      "12-Pacificación sin paz.txt_0014",
+      "12-Pacificación sin paz.txt_0015"
+    ],
+    "ideal_answer": "El pacto separó la política de la milicia, llamando a los militares a la disciplina y alejándolos de la controversia política, mientras les delegaba la seguridad y les otorgaba fueros y jurisdicción interna sobre sus faltas. Esta delegación del orden público originó una ambigüedad, cubriendo bajo el mismo concepto desde un ataque armado hasta una huelga.",
+    "source_chapter": "12-Pacificación sin paz.txt"
+  },
+  {
+    "query": "¿Cuáles fueron las recomendaciones hechas por la primera misión de cooperación de Estados Unidos (compuesta por militares y civiles de la CIA) al gobierno colombiano y qué principios sentó la posterior Misión Yarborough de 1962 para la doctrina contrainsurgente?",
+    "relevant_chunk_ids": [
+      "12-Pacificación sin paz.txt_0044"
+    ],
+    "ideal_answer": "La primera misión recomendó adelantar una reforma agraria, crear una fuerza de contraguerrilla, establecer un servicio de inteligencia civil y militar que incluyera guerra psicológica, y realizar reformas estructurales de largo plazo. La Misión Yarborough sentó las bases de la doctrina de seguridad nacional, estableciendo la noción del enemigo interno, sistemas de propaganda y guerra psicológica, reestructuración de fuerzas, y el entrenamiento de civiles como apoyo militar en la guerra.",
+    "source_chapter": "12-Pacificación sin paz.txt"
+  },
+  {
+    "query": "¿Cuál fue la secuencia de eventos, centrada en Jacobo Prías Álape (Charro Negro) y Mariachi, que detonó la decisión de Marulanda de retomar las armas, y cómo este contexto influyó en el cambio estratégico del Partido Comunista Colombiano (PCC) en 1961?",
+    "relevant_chunk_ids": [
+      "13-Provocaciones y agravios.txt_0004",
+      "13-Provocaciones y agravios.txt_0005",
+      "13-Provocaciones y agravios.txt_0006",
+      "13-Provocaciones y agravios.txt_0007",
+      "13-Provocaciones y agravios.txt_0008",
+      "13-Provocaciones y agravios.txt_0012"
+    ],
+    "ideal_answer": "La escalada de rencillas entre comunes y limpios alcanzó un punto de quiebre cuando Charro Negro decomisó una ametralladora a José Oviedo (Mariachi). En virtud de estos conflictos, Mariachi ordenó el asesinato de Charro Negro el 11 de enero de 1960. Tras no obtener resultados tangibles de las autoridades, Marulanda, consternado por la muerte de su líder y amigo, decidió retomar las armas. Este evento, sumado a la expulsión de los sindicatos comunistas de la CTC y el entusiasmo por la Revolución Cubana, contribuyó a que en 1961 el Noveno Congreso del PCC aprobara la 'combinación de formas de lucha' como estrategia, buscando acceder al poder y no solo la autodefensa.",
+    "source_chapter": "13-Provocaciones y agravios.txt"
+  },
+  {
+    "query": "¿Cómo se diferenciaron las estrategias del Partido Comunista de la Unión Soviética (PCUS) y el Partido Comunista Colombiano (PCC) en cuanto al uso de la lucha armada a partir de 1961?",
+    "relevant_chunk_ids": [
+      "13-Provocaciones y agravios.txt_0001",
+      "13-Provocaciones y agravios.txt_0002",
+      "13-Provocaciones y agravios.txt_0012",
+      "13-Provocaciones y agravios.txt_0013"
+    ],
+    "ideal_answer": "Entre 1956 y el inicio de los 60, el PCC seguía una estrategia de lucha legal en concordancia con la tesis del tránsito pacífico al socialismo aprobada por el PCUS en 1956. Sin embargo, en 1961, el Noveno Congreso del PCC aprobó la combinación de formas de lucha para acceder al poder, lo cual marcó una diferencia, ya que ese mismo año el PCUS insistió en el tránsito pacífico hacia el socialismo y la coexistencia pacífica.",
+    "source_chapter": "13-Provocaciones y agravios.txt"
+  },
+  {
+    "query": "Según el texto, ¿quién fue el político que popularizó el discurso de las 'repúblicas independientes' y cuál fue la consecuencia personal de este discurso décadas después?",
+    "relevant_chunk_ids": [
+      "13-Provocaciones y agravios.txt_0017",
+      "13-Provocaciones y agravios.txt_0018",
+      "13-Provocaciones y agravios.txt_0019",
+      "13-Provocaciones y agravios.txt_0021",
+      "13-Provocaciones y agravios.txt_0022"
+    ],
+    "ideal_answer": "El senador conservador Álvaro Gómez Hurtado popularizó el discurso de las 'repúblicas independientes' el 25 de octubre de 1961, usándolo para criticar al gobierno de Lleras Camargo por permitir zonas donde la soberanía del Estado no era reconocida. Treinta y cuatro años después, este discurso le costó la vida a Gómez Hurtado, quien fue asesinado por las FARC-EP bajo el argumento de que sus declaraciones habían justificado el ataque militar a los asentamientos del movimiento agrario comunista.",
+    "source_chapter": "13-Provocaciones y agravios.txt"
+  },
+  {
+    "query": "¿Cuál fue el objetivo declarado del Plan Lazo y bajo qué influencias estratégicas fue diseñado, especificando quién fue su principal ideólogo?",
+    "relevant_chunk_ids": [
+      "14-Las FARC.txt_0001",
+      "14-Las FARC.txt_0002"
+    ],
+    "ideal_answer": "El objetivo era \"emprender y realizar la acción civil y las operaciones militares necesarias para eliminar las cuadrillas de bandoleros y prevenir la formación de nuevos focos o núcleos de antisociales a fin de obtener y mantener un estado de paz y de tranquilidad en todo el territorio nacional\". El plan estuvo inspirado en los lineamientos contrainsurgentes de Estados Unidos y en los aprendizajes obtenidos por oficiales colombianos en Corea y sus propias experiencias. El general Ruiz Novoa fue el cerebro del plan.",
+    "source_chapter": "14-Las FARC.txt"
+  },
+  {
+    "query": "¿Qué argumento sociopolítico sobre la violencia esgrimió el General Ruiz Novoa, que generó el rechazo del presidente Valencia, y cuál fue el evento posterior que desencadenó su remoción como ministro?",
+    "relevant_chunk_ids": [
+      "14-Las FARC.txt_0020",
+      "14-Las FARC.txt_0021",
+      "14-Las FARC.txt_0022"
+    ],
+    "ideal_answer": "Ruiz Novoa declaró que “las injusticias sociales y económicas son tan generadoras de violencia como de bandolerismo”, y que las reformas necesarias para evitar el comunismo estaban siendo frenadas por sectores influyentes, lo cual fue rechazado por el presidente Valencia. Su remoción ocurrió a finales de enero de 1965, después de que los sindicatos anunciaran un paro y él lo declarara ilegal, pero no subversivo.",
+    "source_chapter": "14-Las FARC.txt"
+  },
+  {
+    "query": "¿Cómo se vincula el ataque a Marquetalia con el mito fundacional de las FARC-EP, y cuáles fueron las principales demandas del programa agrario que esta guerrilla enarboló posteriormente?",
+    "relevant_chunk_ids": [
+      "14-Las FARC.txt_0012",
+      "14-Las FARC.txt_0013",
+      "14-Las FARC.txt_0036"
+    ],
+    "ideal_answer": "El ataque a Marquetalia, a pesar de no derrotar a los guerrilleros (quienes abandonaron el lugar), se convirtió en el \"mito fundacional de las FARC-EP\". Marulanda salió de Marquetalia y se unió a Ciro Trujillo en Riochiquito, lo que llevó a la unificación de los grupos en 1966. El programa agrario que adoptaron incluía la entrega de tierras a campesinos sin propiedad (confiscando latifundios improductivos), la titulación de tierras para colonos, la protección a la propiedad de campesinos ricos que trabajaran la tierra, sistemas de créditos y capacitación rural, sustentación de precios y protección a las tierras indígenas.",
+    "source_chapter": "14-Las FARC.txt"
+  },
+  {
+    "query": "Describa la operación militar que llevó al ELN al borde de la extinción en 1973 y mencione las fuentes de financiación que le permitieron reunificarse y expandirse a principios de los años ochenta.",
+    "relevant_chunk_ids": [],
+    "ideal_answer": "La Operación Anorí, comandada por el general Hernán Hurtado Vallejo y realizada por el comando operativo n.º 10 entre enero y octubre de 1973, llevó al ELN al punto de la extinción. A principios de los años ochenta, el grupo logró crecer y expandirse, apoyado en las rentas del secuestro y en los pagos que le hicieron multinacionales petroleras durante la construcción del oleoducto Caño Limón-Coveñas.",
+    "source_chapter": "15-Golpear y huir.txt"
+  },
+  {
+    "query": "¿Qué suceso generó una fisura insalvable entre el gobierno de Alfonso López Michelsen y el general Álvaro Valencia Tovar, y qué principio defendía el general respecto a la rendición guerrillera?",
+    "relevant_chunk_ids": [],
+    "ideal_answer": "La fisura insalvable se generó a raíz del intento fallido de negociación con el ELN a inicios de 1975, cuando el presidente López ordenó una zona de despeje y cesación de operaciones, lo que Valencia Tovar consideró absurdo. El general defendía el principio de que la rendición de los guerrilleros debía hacerse ante el ejército victorioso para que la sociedad entendiera que la guerrilla podía ser vencida militarmente con los métodos adecuados.",
+    "source_chapter": "15-Golpear y huir.txt"
+  },
+  {
+    "query": "¿Qué doctrinas de guerra guiaron al ELN y al EPL en sus inicios, y cuál era la justificación ideológica del EPL para implementar su estrategia?",
+    "relevant_chunk_ids": [
+      "15-Golpear y huir.txt_0005",
+      "15-Golpear y huir.txt_0033",
+      "15-Golpear y huir.txt_0034"
+    ],
+    "ideal_answer": "El ELN copió la teoría del foco guerrillero. El EPL, de corte maoísta, adoptó la estrategia de la guerra popular prolongada, que iba del campo a la ciudad. La justificación ideológica del EPL para su estrategia se basaba en la creencia de que el Partido Comunista (PC-ML) debía ser la vanguardia de \"esclarecidos\" que trazara los lineamientos fundamentales, ya que el obrero raso no tenía consciencia de su verdadero papel en la revolución.",
+    "source_chapter": "15-Golpear y huir.txt"
+  },
+  {
+    "query": "¿Qué acción tomó el gobierno de Guillermo León Valencia en 1965 para romper el monopolio de la fuerza del Estado, y cuál fue la justificación oficial para esta decisión?",
+    "relevant_chunk_ids": [
+      "16-Armar a los civiles.txt_0000"
+    ],
+    "ideal_answer": "El gobierno de Guillermo León Valencia expidió un decreto en 1965 que permitió armar a los civiles para la defensa nacional y la preservación del orden público. La justificación fue responder al riesgo de una supuesta amenaza externa.",
+    "source_chapter": "16-Armar a los civiles.txt"
+  },
+  {
+    "query": "Según la doctrina contrainsurgente adoptada en Colombia, ¿quiénes fueron considerados 'subversivos' además de los grupos armados, y cuál fue la fuente principal de la ideologización que llevó a este trato en la fuerza pública?",
+    "relevant_chunk_ids": [
+      "16-Armar a los civiles.txt_0004",
+      "16-Armar a los civiles.txt_0005"
+    ],
+    "ideal_answer": "Además del oponente armado, el concepto de enemigo interno se extendió para incluir a opositores sociales y políticos como sindicalistas, profesores, líderes, estudiantes y activistas políticos, quienes recibieron el trato genérico de subversivos. La fuente de esta ideologización en la fuerza pública fue la doctrina y el entrenamiento brindado por Estados Unidos.",
+    "source_chapter": "16-Armar a los civiles.txt"
+  },
+  {
+    "query": "¿Cuáles fueron las dos modalidades para la participación de los civiles aprobadas en el reglamento de combate de contraguerrillas de 1969, y qué actores criminales o económicos emergentes se armaron al amparo de estas disposiciones?",
+    "relevant_chunk_ids": [
+      "16-Armar a los civiles.txt_0006",
+      "16-Armar a los civiles.txt_0007",
+      "16-Armar a los civiles.txt_0008"
+    ],
+    "ideal_answer": "Las dos modalidades aprobadas para la participación de los civiles fueron las juntas de autodefensa y la defensa civil. Los actores que se armaron al amparo de estas disposiciones incluyeron a los nuevos zares de las esmeraldas y a los primeros ejércitos privados de narcotraficantes.",
+    "source_chapter": "16-Armar a los civiles.txt"
+  },
+  {
+    "query": "¿Qué elementos esenciales de la reforma agraria promovida por Carlos Lleras Restrepo fueron eliminados o alterados por el Pacto de Chicoral de 1972, y cuál fue la manifestación de protesta campesina ante la contrarreforma previa en 1971?",
+    "relevant_chunk_ids": [
+      "17-¿Armas o reformas_.txt_0009",
+      "17-¿Armas o reformas_.txt_0010"
+    ],
+    "ideal_answer": "El Pacto de Chicoral de 1972 alteró por completo la esencia de la Ley 135 de 1961 al eliminar la expropiación del latifundio improductivo y priorizar la explotación empresarial sobre el desarrollo campesino. La respuesta campesina ante la contrarreforma del gobierno de Misael Pastrana, antes de Chicoral, fue la toma simultánea de 316 fincas en 13 departamentos, en la que participaron 16.000 familias el 21 de febrero de 1971.",
+    "source_chapter": "17-¿Armas o reformas_.txt"
+  },
+  {
+    "query": "Explique la doble naturaleza institucional y social de la ANUC y cómo su posterior división se manifestó ideológicamente, identificando qué facción de izquierda, según un excombatiente del EPL, fue notoriamente desinteresada en la organización.",
+    "relevant_chunk_ids": [
+      "17-¿Armas o reformas_.txt_0011",
+      "17-¿Armas o reformas_.txt_0014",
+      "17-¿Armas o reformas_.txt_0015",
+      "17-¿Armas o reformas_.txt_0027",
+      "17-¿Armas o reformas_.txt_0028"
+    ],
+    "ideal_answer": "La ANUC mantenía un carácter 'anfibio': era una iniciativa del estado al mismo tiempo que un movimiento social. Luego de su división, existieron dos líneas: una autónoma y de izquierda (Sincelejo), compuesta por personas más beligerantes que buscaban acceder a la tierra, y otra cercana al gobierno (Armenia), que agrupaba al campesino conservador mediano propietario. Según un excombatiente del EPL, el único sector político de izquierda que no mostró interés en la ANUC fue el Partido Comunista Colombiano.",
+    "source_chapter": "17-¿Armas o reformas_.txt"
+  },
+  {
+    "query": "¿Qué principio ideológico llevó a los líderes indígenas del Cauca a fundar el CRIC en 1971 en lugar de integrarse a la ANUC, y cuál fue el impacto de la Iglesia de los Pobres en la organización política de estas comunidades?",
+    "relevant_chunk_ids": [
+      "17-¿Armas o reformas_.txt_0036",
+      "17-¿Armas o reformas_.txt_0037",
+      "17-¿Armas o reformas_.txt_0052",
+      "17-¿Armas o reformas_.txt_0053",
+      "17-¿Armas o reformas_.txt_0057"
+    ],
+    "ideal_answer": "Los líderes indígenas del Cauca fundaron el CRIC porque la ANUC proponía un proyecto campesino enmarcado en las ideologías de las luchas de clase, lo cual no los representaba ni les permitía crear gobiernos acordes a su cultura. La Iglesia de los Pobres, influenciada por la Teología de la Liberación y la 'opción preferencial por los pobres', generó un cambio trascendental al encauzar el trabajo pastoral hacia la formación política de las comunidades, especialmente campesinas e indígenas, sirviendo para su organización.",
+    "source_chapter": "17-¿Armas o reformas_.txt"
+  },
+  {
+    "query": "¿Qué anomalías rodearon el proceso electoral de 1970, y quiénes, décadas después, confirmaron públicamente la existencia del fraude?",
+    "relevant_chunk_ids": [
+      "18-El agotamiento del pacto.txt_0001",
+      "18-El agotamiento del pacto.txt_0002",
+      "18-El agotamiento del pacto.txt_0003",
+      "18-El agotamiento del pacto.txt_0004",
+      "18-El agotamiento del pacto.txt_0005"
+    ],
+    "ideal_answer": "Inicialmente, las emisoras reportaron a Rojas Pinilla como ganador por una diferencia de 113.000 votos, pero el gobierno prohibió los boletines. A la mañana siguiente, la ventaja había revertido a favor de Pastrana Borrero, llegando a una diferencia final de 63.557 votos. Décadas más tarde, el ministro Carlos Augusto Noriega (en 1995 y 1998) y el excanciller Alfonso López Michelsen confirmaron la existencia del fraude, señalando que ocurrió en Nariño y Cesar, entre otras regiones.",
+    "source_chapter": "18-El agotamiento del pacto.txt"
+  },
+  {
+    "query": "De acuerdo con el texto, ¿a qué factores se atribuyó el éxito electoral de la ANAPO y por qué se le denominó la variante populista colombiana?",
+    "relevant_chunk_ids": [
+      "18-El agotamiento del pacto.txt_0008",
+      "18-El agotamiento del pacto.txt_0009"
+    ],
+    "ideal_answer": "El éxito de la ANAPO en las elecciones legislativas se debió al prestigio que tenía el general Rojas Pinilla en parte de la población y a la habilidad de sus dirigentes para interpretar la frustración que dejaba el Frente Nacional. Se le denominó la variante populista colombiana debido a su discurso y a su manera de hacer política, que incluía actividades como organizar las fiestas de diciembre y la repartición de leche y mercados.",
+    "source_chapter": "18-El agotamiento del pacto.txt"
+  },
+  {
+    "query": "¿Cuál fue la reacción del Estado y los partidos tradicionales frente a los triunfos electorales de la izquierda legal, como la UNO, y qué percepción de la democracia se consolidó entre los opositores?",
+    "relevant_chunk_ids": [
+      "18-El agotamiento del pacto.txt_0005",
+      "18-El agotamiento del pacto.txt_0006",
+      "18-El agotamiento del pacto.txt_0010",
+      "18-El agotamiento del pacto.txt_0011",
+      "18-El agotamiento del pacto.txt_0014"
+    ],
+    "ideal_answer": "La persecución contra los grupos de izquierda legal solía empezar una vez que obtenían algún triunfo en las urnas. El avance de la UNO fue frenado con violencia, incluyendo el decomiso de propaganda y el asesinato o heridas a sus miembros por parte de dirigentes de los partidos liberal y conservador. Esta represión consolidó entre los opositores la percepción de que las vías democráticas estaban cerradas o eran muy restringidas.",
+    "source_chapter": "18-El agotamiento del pacto.txt"
+  },
+  {
+    "query": "¿Cuál fue la principal diferencia estratégica del M-19 respecto a las guerrillas tradicionales y cómo manejaron sus fundadores la relación con sus antiguos grupos de militancia comunista?",
+    "relevant_chunk_ids": [
+      "19-¿Abrir la democracia a tiros_.txt_0003",
+      "19-¿Abrir la democracia a tiros_.txt_0004",
+      "19-¿Abrir la democracia a tiros_.txt_0005"
+    ],
+    "ideal_answer": "El M-19 adoptó una estrategia de guerrilla urbana, al estilo de los Montoneros o Tupamaros, de naturaleza más insurreccional y buscando llegar a los sectores urbanos, a diferencia de la estrategia de guerra popular prolongada de las guerrillas tradicionales. En cuanto a la relación con las FARC, el M-19 fue respetuoso, nunca utilizó el lenguaje de llamar traidores a las FARC, y sus miembros nunca hicieron antipartido.",
+    "source_chapter": "19-¿Abrir la democracia a tiros_.txt"
+  },
+  {
+    "query": "Según los testimonios a la Comisión de la Verdad, ¿qué consecuencias tuvo el asesinato de José Raquel Mercado para el gobierno de Alfonso López Michelsen y para otras organizaciones guerrilleras?",
+    "relevant_chunk_ids": [
+      "19-¿Abrir la democracia a tiros_.txt_0013"
+    ],
+    "ideal_answer": "El asesinato de Mercado trastornó al presidente López Michelsen y cambió completamente el tono del gobierno a partir de ese momento. Además, el ejemplo del M-19 cundió en otras guerrillas, llevando al ELN, meses después, a asesinar a Rafael Bayona, presidente del sindicato de acerías paz del río, con el fin de apropiarse de la dirección de dicha organización social.",
+    "source_chapter": "19-¿Abrir la democracia a tiros_.txt"
+  },
+  {
+    "query": "En el contexto de la relación entre el M-19 y el movimiento indígena en los años setenta, ¿cuáles fueron las motivaciones para buscar dicha alianza y cuáles fueron las posturas divergentes dentro de las comunidades indígenas respecto a la lucha armada?",
+    "relevant_chunk_ids": [
+      "19-¿Abrir la democracia a tiros_.txt_0015",
+      "19-¿Abrir la democracia a tiros_.txt_0016",
+      "19-¿Abrir la democracia a tiros_.txt_0017"
+    ],
+    "ideal_answer": "Algunos líderes indígenas del pueblo nasa buscaron protección en el M-19 debido a la agitación causada por las tomas de tierras y la represión de terratenientes, a cambio de que la insurgencia estuviera en Tierradentro y de obtener armas para formar autodefensas. Dentro de las comunidades hubo dos posturas divergentes: unos consideraban que debían estar al margen de las guerrillas para evitar consecuencias negativas, mientras que otros vieron el armarse como la única vía para defenderse de la expulsión de sus territorios.",
+    "source_chapter": "19-¿Abrir la democracia a tiros_.txt"
+  },
+  {
+    "query": "¿Cuáles fueron los factores sociales, económicos y políticos que convergieron para crear el 'inconformismo social' que explotó con el Paro Cívico Nacional del 14 de septiembre de 1977?",
+    "relevant_chunk_ids": [
+      "20-El paro cívico de 1977_ un pequeño 9 de abril.txt_0002",
+      "20-El paro cívico de 1977_ un pequeño 9 de abril.txt_0004",
+      "20-El paro cívico de 1977_ un pequeño 9 de abril.txt_0013",
+      "20-El paro cívico de 1977_ un pequeño 9 de abril.txt_0014"
+    ],
+    "ideal_answer": "El inconformismo social se originó en factores estructurales como la alta proporción de hogares con Necesidades Básicas Insatisfechas (NBI) —70,5 % en 1973— y la escalada de la inflación (de 6,83 % en 1970 a 28,30 % en 1977). Este descontento estructural explotó debido a medidas específicas del gobierno de Alfonso López Michelsen, incluyendo la emergencia económica decretada, el déficit de servicios públicos y vivienda, el aumento de los precios del transporte público y la reducción de subsidios.",
+    "source_chapter": "20-El paro cívico de 1977_ un pequeño 9 de abril.txt"
+  },
+  {
+    "query": "¿Cómo difieren las perspectivas sobre la participación o la naturaleza de la violencia de grupos armados en el Paro Cívico Nacional de 1977, según los testimonios citados de Víctor Baena, Clara López y el General Salcedo Lora?",
+    "relevant_chunk_ids": [
+      "20-El paro cívico de 1977_ un pequeño 9 de abril.txt_0024",
+      "20-El paro cívico de 1977_ un pequeño 9 de abril.txt_0025",
+      "20-El paro cívico de 1977_ un pequeño 9 de abril.txt_0026"
+    ],
+    "ideal_answer": "Víctor Baena, líder sindical, afirmó que ninguna organización guerrillera apareció ni tuvo reuniones antes o después del paro, y consideró que cualquier violento de estas organizaciones fue puramente oportunista. En contraste, Clara López dudaba que el M-19 no se hubiera involucrado en la protesta. Por su parte, el General Salcedo Lora aseguró que el paro fue \"tremendamente violento\" y que no se trató de reclamos habituales, sino que involucró a \"organizaciones verdaderamente armadas\" que atacaron a la fuerza pública.",
+    "source_chapter": "20-El paro cívico de 1977_ un pequeño 9 de abril.txt"
+  },
+  {
+    "query": "Describa la reacción de los altos mandos militares después del Paro Cívico de 1977 y explique las razones del presidente Alfonso López Michelsen para negarse inicialmente a adoptar el Estatuto de Seguridad propuesto.",
+    "relevant_chunk_ids": [
+      "20-El paro cívico de 1977_ un pequeño 9 de abril.txt_0034",
+      "20-El paro cívico de 1977_ un pequeño 9 de abril.txt_0035",
+      "20-El paro cívico de 1977_ un pequeño 9 de abril.txt_0040"
+    ],
+    "ideal_answer": "La confrontación durante el paro convenció a los militares de que el riesgo de una insurrección era real. Como reacción, en diciembre de 1977, los 33 altos mandos militares, liderados por el general luis carlos camacho leyva, propusieron un borrador del estatuto de seguridad al presidente López. López se negó a adoptarlo bajo el argumento de que, si bien los controles y fiscalizaciones podían parecer engorrosos, eran necesarios, y que las medidas excepcionales representaban un riesgo para la democracia; además, como liberal, se oponía a la censura de prensa.",
+    "source_chapter": "20-El paro cívico de 1977_ un pequeño 9 de abril.txt"
+  },
+  {
+    "query": "¿Qué evento de 1977 fue interpretado erróneamente tanto por las fuerzas del Estado como por las guerrillas, y cómo esta doble lectura influyó en las decisiones que llevaron a la implementación del Estatuto de Seguridad de 1978?",
+    "relevant_chunk_ids": [
+      "21-Una democracia represiva.txt_0001",
+      "21-Una democracia represiva.txt_0002",
+      "21-Una democracia represiva.txt_0004"
+    ],
+    "ideal_answer": "El evento fue el paro cívico de septiembre de 1977, el cual fue percibido por el gobierno y las fuerzas militares como la inminencia de una insurrección, mientras que las guerrillas creyeron que el pueblo estaba listo para la revolución. Esta doble lectura llevó a ambos bandos a tomar decisiones radicales que convirtieron la guerra, previamente de baja intensidad, en un proyecto nacional, resultando en la respuesta de más represión por parte del Estado, culminando con la expedición del Estatuto de Seguridad.",
+    "source_chapter": "21-Una democracia represiva.txt"
+  },
+  {
+    "query": "Además de restringir libertades fundamentales, ¿cuáles fueron los tres ejes principales de las medidas adoptadas por el Estatuto de Seguridad de 1978 y qué grupos sociales quedaron convertidos en potenciales 'enemigos internos' bajo su aplicación práctica?",
+    "relevant_chunk_ids": [
+      "21-Una democracia represiva.txt_0007"
+    ],
+    "ideal_answer": "Las tres medidas principales fueron: 1) restricción de las libertades fundamentales como derecho de reunión y libre expresión, y autorización de despidos masivos en casos de paros y huelgas; 2) control de la producción y difusión de la información; y 3) legitimación de la jurisdicción militar sobre civiles en hechos relacionados con afectaciones al orden público. En la práctica, el estatuto convirtió en potencial enemigo interno a disidentes políticos, intelectuales críticos, líderes sociales, sindicales, campesinos e integrantes de los nuevos movimientos urbanos.",
+    "source_chapter": "21-Una democracia represiva.txt"
+  },
+  {
+    "query": "¿Cuál fue la postura oficial del gobierno colombiano, resumida por Julio César Turbay Ayala, frente a las denuncias de violaciones a los derechos humanos, y cómo fue contrastada esta postura por las conclusiones de Amnistía Internacional tras su visita a Colombia?",
+    "relevant_chunk_ids": [
+      "21-Una democracia represiva.txt_0048",
+      "21-Una democracia represiva.txt_0049",
+      "21-Una democracia represiva.txt_0050"
+    ],
+    "ideal_answer": "Aunque una comisión de la Cámara de Representantes comprobó las torturas, el gobierno desestimó el informe, planteando que las fuerzas armadas actuaron con vocación democrática. El presidente Turbay Ayala resumió esta negación con la frase: \"en colombia el único preso político soy yo\". Amnistía Internacional, tras su visita, contradijo al gobierno al afirmar que la tortura a presos políticos en dependencias militares no era un caso excepcional, sino una práctica sistemática.",
+    "source_chapter": "21-Una democracia represiva.txt"
+  },
+  {
+    "query": "¿Qué factores específicos permitieron la consolidación y expansión del narcotráfico en Colombia, diferenciándolo de otros países de Latinoamérica, y qué eventos frenaron esta economía ilegal en el continente?",
+    "relevant_chunk_ids": [
+      "22-El narcotráfico patea el tablero.txt_0002"
+    ],
+    "ideal_answer": "Colombia se convirtió en el principal protagonista debido a la confluencia de factores medioambientales, políticos, sociales y culturales. En contraste, hechos como la Revolución Cubana en 1959 y el golpe de estado de Pinochet en Chile en 1973 frenaron esta economía ilegal en otras partes del continente, incluyendo coyunturas políticas y sociales en Argentina, Brasil, Perú y Ecuador.",
+    "source_chapter": "22-El narcotráfico patea el tablero.txt"
+  },
+  {
+    "query": "Describa el método y el alcance de la entrada de dineros del narcotráfico a la economía colombiana a finales de la década de los setenta, incluyendo el mecanismo de lavado y los principales sectores de inversión.",
+    "relevant_chunk_ids": [
+      "22-El narcotráfico patea el tablero.txt_0008",
+      "22-El narcotráfico patea el tablero.txt_0009"
+    ],
+    "ideal_answer": "Para 1976, se estimaba que las exportaciones de cocaína y marihuana constituían la mitad de todas las exportaciones colombianas. Estos dineros se lavaron profusamente en el sistema financiero en la década de los setenta a través de la 'ventanilla siniestra'. Los ingresos se invirtieron luego en el sector privado de manera rentista, específicamente en tierras, ganado, el sector inmobiliario, movimientos financieros, la industria química y el transporte.",
+    "source_chapter": "22-El narcotráfico patea el tablero.txt"
+  },
+  {
+    "query": "¿Cómo evolucionó la relación entre las FARC-EP y el cultivo de coca entre finales de los años setenta e inicios de los ochenta, y cuál fue el rol que finalmente asumió la guerrilla en la cadena de producción y comercialización?",
+    "relevant_chunk_ids": [
+      "22-El narcotráfico patea el tablero.txt_0032",
+      "22-El narcotráfico patea el tablero.txt_0036",
+      "22-El narcotráfico patea el tablero.txt_0039",
+      "22-El narcotráfico patea el tablero.txt_0040"
+    ],
+    "ideal_answer": "Inicialmente, las FARC se opusieron y persiguieron a los campesinos que sembraban coca y marihuana hasta 1979. Hacia 1980-1981, cesaron la persecución, permitiendo la economía regional e incluso sacando réditos económicos. Posteriormente, las FARC-EP asumieron el papel de intermediario, comprando la pasta base de coca directamente al campesino para vendérsela a los narcotraficantes, buscando evitar problemas entre campesinos y compradores y obtener réditos económicos para financiar la guerra.",
+    "source_chapter": "22-El narcotráfico patea el tablero.txt"
+  },
+  {
+    "query": "¿Cómo se diferenciaron los gobiernos de Belisario Betancur y César Gaviria en su éxito para lograr acuerdos de paz con grupos guerrilleros?",
+    "relevant_chunk_ids": [
+      "23-La búsqueda de la democracia y la guerra sucia (1978-1990).txt_0001",
+      "23-La búsqueda de la democracia y la guerra sucia (1978-1990).txt_0002"
+    ],
+    "ideal_answer": "Aunque el presidente Belisario Betancur inició un proceso de paz cuyo objetivo era el tránsito de las guerrillas hacia la vida política, no logró la firma de un acuerdo. En contraste, el acuerdo de paz sí se cristalizó con cinco grupos guerrilleros en 1991 durante el gobierno de César Gaviria.",
+    "source_chapter": "23-La búsqueda de la democracia y la guerra sucia (1978-1990).txt"
+  },
+  {
+    "query": "¿Qué estrategias específicas emplearon los capos narcotraficantes para buscar ser incluidos en la vida nacional y obtener mayor influencia social y política en Colombia?",
+    "relevant_chunk_ids": [
+      "23-La búsqueda de la democracia y la guerra sucia (1978-1990).txt_0006",
+      "23-La búsqueda de la democracia y la guerra sucia (1978-1990).txt_0007"
+    ],
+    "ideal_answer": "Para obtener mayor influencia, los capos narcotraficantes financiaron campañas electorales a distintos niveles, construyeron ejércitos contrainsurgentes como el MAS, y potenciaron las autodefensas de Puerto Boyacá.",
+    "source_chapter": "23-La búsqueda de la democracia y la guerra sucia (1978-1990).txt"
+  },
+  {
+    "query": "Identifique las dos principales divisiones o pugnas ideológicas que segmentaron tanto al movimiento insurgente como al conflicto general entre quienes buscaban abrir la democracia en la década de los ochenta.",
+    "relevant_chunk_ids": [
+      "23-La búsqueda de la democracia y la guerra sucia (1978-1990).txt_0004",
+      "23-La búsqueda de la democracia y la guerra sucia (1978-1990).txt_0005",
+      "23-La búsqueda de la democracia y la guerra sucia (1978-1990).txt_0009",
+      "23-La búsqueda de la democracia y la guerra sucia (1978-1990).txt_0010"
+    ],
+    "ideal_answer": "La primera división fue dentro del movimiento insurgente, entre aquellos que apostaban por la insurrección armada y la revolución socialista, y los que buscaban abrir la democracia a través de acuerdos de paz y reformas. La segunda división general fue el enfrentamiento entre quienes querían abrir la democracia por vías institucionales o a través de las armas, y aquellos que se oponían y preferían mantener el statu quo.",
+    "source_chapter": "23-La búsqueda de la democracia y la guerra sucia (1978-1990).txt"
+  },
+  {
+    "query": "¿Cuál fue el primer paso concreto dado por el gobierno de Belisario Betancur para iniciar negociaciones de paz con las guerrillas, y cómo reaccionaron los militares ante esta medida?",
+    "relevant_chunk_ids": [
+      "24-Ni una gota más de sangre.txt_0004",
+      "24-Ni una gota más de sangre.txt_0005",
+      "24-Ni una gota más de sangre.txt_0007",
+      "24-Ni una gota más de sangre.txt_0008"
+    ],
+    "ideal_answer": "El primer paso fue plantear y aprobar una ley de amnistía en noviembre de 1982. Esta ley no imponía condiciones y se aplicaba a los presos por rebelión sin necesidad de solicitud, excluyendo solo los delitos atroces. Los militares se indignaron porque la falta de condicionalidad y el hecho de tramitarse sin su anuencia (consentimiento) lo vieron como un revés a la victoria militar que consideraban cercana.",
+    "source_chapter": "24-Ni una gota más de sangre.txt"
+  },
+  {
+    "query": "Según los testimonios recopilados por la Comisión de la Verdad, ¿cómo justificaban los grupos guerrilleros el uso del secuestro como método de financiación, y qué efecto tuvo esta práctica a largo plazo en su legitimidad?",
+    "relevant_chunk_ids": [
+      "24-Ni una gota más de sangre.txt_0050"
+    ],
+    "ideal_answer": "Los excombatientes explicaron que el secuestro era visto como un elemento estratégico y una necesidad absoluta para conseguir finanzas para la lucha revolucionaria, dado que no eran financiados por gobiernos socialistas y consideraban que las élites colombianas debían pagar su guerra. Sin embargo, a largo plazo, esta práctica se convirtió en un búmeran para las guerrillas, minando la confianza en la paz y en sus opciones políticas, y el secretariado de las FARC-EP reconoció que hirió de muerte su legitimidad y credibilidad.",
+    "source_chapter": "24-Ni una gota más de sangre.txt"
+  },
+  {
+    "query": "Hacia 1986, con la expansión de la presencia guerrillera en 172 municipios, ¿cuáles eran los cuatro factores estratégicos comunes que compartían los diferentes grupos insurgentes para lograr sus objetivos de lucha?",
+    "relevant_chunk_ids": [
+      "24-Ni una gota más de sangre.txt_0024",
+      "24-Ni una gota más de sangre.txt_0025"
+    ],
+    "ideal_answer": "Los cuatro factores estratégicos comunes eran: 1) la urgencia de adquirir armas para masificar y modernizar su lucha militar y logística; 2) la necesidad de organizar al pueblo y usar organizaciones legales para aumentar su influencia; 3) el requisito de ganar peso en la opinión nacional e internacional mediante golpes de propaganda y agendas políticas resonantes; y 4) la necesidad de establecer relaciones internacionales para evitar el aislamiento si llegaban al poder.",
+    "source_chapter": "24-Ni una gota más de sangre.txt"
+  },
+  {
+    "query": "¿Cuál fue el motivo inmediato para la creación del grupo Muerte a Secuestradores (MAS) y cómo se estructuró su financiación y capacidad operativa inicial, según lo anunciado en el comunicado?",
+    "relevant_chunk_ids": [
+      "25-El MAS y la mentalidad paramilitar.txt_0000",
+      "25-El MAS y la mentalidad paramilitar.txt_0001",
+      "25-El MAS y la mentalidad paramilitar.txt_0005",
+      "25-El MAS y la mentalidad paramilitar.txt_0006"
+    ],
+    "ideal_answer": "El motivo inmediato fue el secuestro de Marta Nieves Ochoa, por cuyo rescate se pedían 12 millones de dólares a los hermanos Ochoa. La financiación se anunció mediante el aporte de “223 jefes mafiosos”, quienes decidieron asignar cada uno dos millones de pesos y diez de sus mejores hombres, lo que resultaría en un ejército privado de 2.230 hombres.",
+    "source_chapter": "25-El MAS y la mentalidad paramilitar.txt"
+  },
+  {
+    "query": "Según el informe publicado por el procurador general Carlos Jiménez Gómez en 1983, ¿cómo caracterizó al MAS y qué proporción de los integrantes señalados provenía del Ejército Nacional y la Policía Nacional?",
+    "relevant_chunk_ids": [
+      "25-El MAS y la mentalidad paramilitar.txt_0014",
+      "25-El MAS y la mentalidad paramilitar.txt_0015",
+      "25-El MAS y la mentalidad paramilitar.txt_0016"
+    ],
+    "ideal_answer": "El informe caracterizó al MAS no como una organización única, sino como una \"mentalidad de crisis\" y un tipo de delincuencia manifestada como una justicia privada encubierta. De las 163 personas señaladas con nombres y apellidos como integrantes, 59 eran oficiales y suboficiales del Ejército Nacional y de la Policía Nacional.",
+    "source_chapter": "25-El MAS y la mentalidad paramilitar.txt"
+  },
+  {
+    "query": "Si bien existían civiles armados previamente, ¿por qué el MAS se considera el \"hito fundacional del paramilitarismo en Colombia\" y qué acción judicial crucial aseguró la impunidad de sus crímenes?",
+    "relevant_chunk_ids": [
+      "25-El MAS y la mentalidad paramilitar.txt_0006",
+      "25-El MAS y la mentalidad paramilitar.txt_0007",
+      "25-El MAS y la mentalidad paramilitar.txt_0016",
+      "25-El MAS y la mentalidad paramilitar.txt_0017"
+    ],
+    "ideal_answer": "Se considera el hito fundacional porque el MAS representó una alianza clara entre la mafia, la fuerza pública y sectores económicos y políticos afectados por la guerrilla. La impunidad se aseguró cuando las investigaciones judiciales abiertas por los jueces de instrucción criminal fueron transferidas a la jurisdicción penal militar, donde posteriormente fueron archivadas las causas.",
+    "source_chapter": "25-El MAS y la mentalidad paramilitar.txt"
+  },
+  {
+    "query": "¿Cuáles fueron las acciones contradictorias tomadas por el gobierno y el estamento militar inmediatamente después de que el presidente Betancur ordenara el cese del fuego con las FARC-EP, establecido en el Acuerdo de La Uribe?",
+    "relevant_chunk_ids": [
+      "26-«Los enemigos agazapados de la paz».txt_0002",
+      "26-«Los enemigos agazapados de la paz».txt_0003"
+    ],
+    "ideal_answer": "El presidente Betancur hizo una alocución televisada para ordenar a las fuerzas militares el cese de toda acción ofensiva, pero nunca formalizó dicha orden mediante un decreto. Días después, el ministro de defensa encargado, general Miguel Vega Uribe, emitió una resolución para sus tropas que afirmaba que no existían territorios vedados para los soldados, lo cual fue considerado una especie de contraorden a la emitida por el presidente.",
+    "source_chapter": "26-«Los enemigos agazapados de la paz».txt"
+  },
+  {
+    "query": "Según los testimonios de los exguerrilleros citados en el texto, ¿cuál fue el principal mecanismo de financiación que las FARC-EP adoptaron a partir de la década de 1980 y cuál era la justificación principal de esta decisión?",
+    "relevant_chunk_ids": [
+      "26-«Los enemigos agazapados de la paz».txt_0034",
+      "26-«Los enemigos agazapados de la paz».txt_0035"
+    ],
+    "ideal_answer": "El principal mecanismo de financiación adoptado fue el cobro del impuesto a la coca, también conocido como “gramaje” o impuesto de seguridad, que se implementó mientras el negocio de la cocaína comenzaba con Carlos Ledher y los Ochoa. La justificación de esta decisión era la necesidad urgente de dinero para sostener la estructura de un ejército grande, ya que la preocupación inicial era que “no teníamos plata” y consideraban que no tenían otra opción.",
+    "source_chapter": "26-«Los enemigos agazapados de la paz».txt"
+  },
+  {
+    "query": "Identifique tres grupos o estamentos mencionados en el texto que se opusieron al proceso de paz del presidente Betancur y describa brevemente la forma en que manifestaron su rechazo.",
+    "relevant_chunk_ids": [
+      "26-«Los enemigos agazapados de la paz».txt_0000",
+      "26-«Los enemigos agazapados de la paz».txt_0001"
+    ],
+    "ideal_answer": "Tres grupos que se opusieron fueron: 1) Los militares, a través del Ministro de Guerra Fernando Landazábal Reyes, quien cuestionó la política de paz y las relaciones exteriores públicamente, forzando su renuncia. 2) La Asociación Nacional de Industriales (ANDI), cuya postura gremial mostró prevención y rechazo al proceso. 3) La clase empresarial colombiana, según el expresidente de la Comisión de Paz, Otto Morales Benítez, quien fue insultado y enfrentó hostilidad por su participación en los diálogos.",
+    "source_chapter": "26-«Los enemigos agazapados de la paz».txt"
+  },
+  {
+    "query": "¿Cuáles fueron las diferencias estratégicas entre el M-19 y las FARC-EP respecto a su visión política y militar durante el proceso de paz con Betancur, y cómo se manifestó la ruta política de cada una?",
+    "relevant_chunk_ids": [
+      "27-Una tregua imposible.txt_0007",
+      "27-Una tregua imposible.txt_0008"
+    ],
+    "ideal_answer": "A diferencia de las FARC-EP, que crearon la Unión Patriótica (UP) como un partido político y ruta directa de salida de la guerra a la política, el M-19 no buscaba formar un partido. Por el contrario, quería construir un colectivo social y político muy amplio, sin ideologías, y un movimiento armado que combinara ejército y milicias populares para lograr una insurrección. El M-19 operaba bajo la tesis de que la paz se lograba mostrando fuerza y debilitando al otro con armas de combate.",
+    "source_chapter": "27-Una tregua imposible.txt"
+  },
+  {
+    "query": "¿De qué manera la doctrina del EPL de 'combinación de formas de lucha' facilitó la estrategia de la 'guerra sucia' para sabotear el proceso de paz, y qué sectores resultaron ser los más impactados por esta violencia?",
+    "relevant_chunk_ids": [
+      "27-Una tregua imposible.txt_0043",
+      "27-Una tregua imposible.txt_0044",
+      "27-Una tregua imposible.txt_0046"
+    ],
+    "ideal_answer": "El hecho de que el PC-ML tuviera un vínculo directo con el EPL (con Ernesto Rojas siendo simultáneamente jefe militar de la guerrilla y del comité central del partido) hacía vulnerables a sus militantes políticos no armados. Esta doctrina se convirtió en la justificación para la alianza paramilitar para poner como blanco militar a los no combatientes o personas en estado de indefensión, siendo esta la esencia de la guerra sucia. Los sectores más golpeados fueron el movimiento campesino y obrero, especialmente en el magisterio y la agroindustria del banano.",
+    "source_chapter": "27-Una tregua imposible.txt"
+  },
+  {
+    "query": "Durante el proceso de paz de Betancur, ¿qué destino tuvieron los líderes Jaime Bateman Cayón del M-19, Carlos Toledo Plata del M-19 y Óscar William Calvo del EPL, y cómo se relacionaron sus muertes o desapariciones con el proceso de diálogo?",
+    "relevant_chunk_ids": [
+      "27-Una tregua imposible.txt_0014",
+      "27-Una tregua imposible.txt_0062"
+    ],
+    "ideal_answer": "Jaime Bateman Cayón (M-19) desapareció en abril de 1983 cuando viajaba en una avioneta privada a Panamá para reunirse con un emisario del gobierno y avanzar en una propuesta de paz; su muerte fue el primer revés del proceso con el M-19. Carlos Toledo Plata (M-19) fue asesinado por sicarios en Bucaramanga en agosto de 1984, cuatro días antes de la firma de su cese al fuego. Óscar William Calvo (EPL) fue asesinado por sicarios enviados por el ejército en noviembre de 1985 en Bogotá, seis horas después de haber citado a una rueda de prensa para aclarar que la toma de Urrao no rompía la tregua.",
+    "source_chapter": "27-Una tregua imposible.txt"
+  },
+  {
+    "query": "¿Cuál fue el objetivo declarado del M-19 al tomarse el Palacio de Justicia y qué acción militar específica marcó el inicio de la operación de retoma por parte de las fuerzas gubernamentales?",
+    "relevant_chunk_ids": [
+      "28-La toma del Palacio de Justicia.txt_0000",
+      "28-La toma del Palacio de Justicia.txt_0001",
+      "28-La toma del Palacio de Justicia.txt_0002"
+    ],
+    "ideal_answer": "El objetivo del M-19 era presentar una demanda armada ante los magistrados y convocar a un juicio público contra el presidente Belisario Betancur, acusándolo de traición por incumplir el acuerdo de cese del fuego y diálogo nacional de 1984. La retoma se inició cuando un tanque cascabel subió las gradas, derribó la puerta principal y penetró el primer piso del palacio disparando proyectiles.",
+    "source_chapter": "28-La toma del Palacio de Justicia.txt"
+  },
+  {
+    "query": "Según los testimonios y hallazgos, ¿cuáles fueron las tres decisiones principales que el presidente Betancur tomó durante el manejo de la crisis, y qué conclusión crucial sobre su papel alcanzó la comisión de magistrados de 2010?",
+    "relevant_chunk_ids": [
+      "28-La toma del Palacio de Justicia.txt_0007",
+      "28-La toma del Palacio de Justicia.txt_0008",
+      "28-La toma del Palacio de Justicia.txt_0015"
+    ],
+    "ideal_answer": "Según Jaime Castro, ministro de gobierno, las tres grandes decisiones de Betancur fueron: ordenar el envío del batallón guardia presidencial, negarse a negociar con el M-19 y no hablar directamente con el presidente de la corte, Reyes Echandía. Sin embargo, la comisión de 2010 concluyó que el gobierno estuvo ausente y al margen de las maniobras de las fuerzas armadas, considerando que el presidente fue simplemente un espectador del desarrollo de los acontecimientos.",
+    "source_chapter": "28-La toma del Palacio de Justicia.txt"
+  },
+  {
+    "query": "En el marco de las investigaciones reabiertas, ¿en qué consistió la 'teoría de la ratonera' establecida por la fiscalía, y por qué tipo de violaciones a los derechos humanos la Corte Interamericana de Derechos Humanos condenó al Estado colombiano?",
+    "relevant_chunk_ids": [
+      "28-La toma del Palacio de Justicia.txt_0029",
+      "28-La toma del Palacio de Justicia.txt_0031",
+      "28-La toma del Palacio de Justicia.txt_0032"
+    ],
+    "ideal_answer": "La 'teoría de la ratonera' sostiene que las fuerzas armadas tenían conocimiento de que la toma ocurriría, pero no intervinieron, permitiendo que los hechos ocurrieran para destrozar lo que quedaba del proceso de paz y de la justicia. La Corte IDH condenó al Estado por violación a la libertad personal, ejecuciones extrajudiciales y desapariciones.",
+    "source_chapter": "28-La toma del Palacio de Justicia.txt"
+  },
+  {
+    "query": "¿Qué factores convergentes impulsaron el auge de la movilización social y la demanda de apertura democrática en Colombia durante el período posterior al Frente Nacional, según el texto?",
+    "relevant_chunk_ids": [
+      "29-Democracia desde abajo.txt_0001",
+      "29-Democracia desde abajo.txt_0002",
+      "29-Democracia desde abajo.txt_0003"
+    ],
+    "ideal_answer": "El auge se debió a que, si bien el Frente Nacional había terminado formalmente, continuaba en la práctica, provocando que las regiones reclamaran apertura democrática. Otros factores incluyeron la fragmentación del partido liberal y la pérdida de influencia del conservador, los cuales no estaban conectados con las demandas de las clases bajas y medias, y la convicción de las guerrillas de que los hechos del Palacio de Justicia y la guerra con el narcotráfico precipitaban una crisis del régimen.",
+    "source_chapter": "29-Democracia desde abajo.txt"
+  },
+  {
+    "query": "Describa los objetivos principales y el método de acción característico de los movimientos cívicos urbanos y regionales, así como el contexto institucional que motivó su demanda por la descentralización.",
+    "relevant_chunk_ids": [
+      "29-Democracia desde abajo.txt_0005",
+      "29-Democracia desde abajo.txt_0006",
+      "29-Democracia desde abajo.txt_0008"
+    ],
+    "ideal_answer": "Estos movimientos buscaban la descentralización administrativa y financiera para que los municipios tuvieran mayor autonomía y poder, lo que implicaba una mayor presencia social del estado, desarrollo económico, servicios públicos y participación ciudadana. Esta demanda surgió porque las gobernaciones controladas desde el centro centralizaban todo el poder. Su principal herramienta de acción fueron los paros cívicos.",
+    "source_chapter": "29-Democracia desde abajo.txt"
+  },
+  {
+    "query": "Explique el doble rol que la descentralización jugó en el contexto de la violencia: ¿cómo fue concebida como un instrumento de paz y, simultáneamente, cómo la percepción militar de los movimientos sociales (relacionados con esa apertura) exacerbó la 'guerra sucia'?",
+    "relevant_chunk_ids": [
+      "29-Democracia desde abajo.txt_0012",
+      "29-Democracia desde abajo.txt_0013",
+      "29-Democracia desde abajo.txt_0014",
+      "29-Democracia desde abajo.txt_0016",
+      "29-Democracia desde abajo.txt_0017",
+      "29-Democracia desde abajo.txt_0018"
+    ],
+    "ideal_answer": "La descentralización fue vista como un instrumento clave para la paz, ofreciendo a la guerrilla desmovilizada (como la UP) la oportunidad de aspirar a cargos de elección popular e ingresar a la política. Sin embargo, las Fuerzas Armadas creían que el movimiento social formaba parte de la estrategia insurgente, estigmatizando a organizaciones (como los sindicatos) como fachadas de la subversión, lo cual provocó que los líderes y activistas de los movimientos sociales se convirtieran en el principal blanco de la guerra sucia.",
+    "source_chapter": "29-Democracia desde abajo.txt"
+  },
+  {
+    "query": "Describa la plataforma política central de la Unión Patriótica y cuantifique su éxito en las elecciones legislativas de marzo de 1986.",
+    "relevant_chunk_ids": [
+      "30-El genocidio de la Unión Patriótica.txt_0002"
+    ],
+    "ideal_answer": "La plataforma política de la UP se basaba en la ampliación de la democracia, el respeto de los derechos humanos y la justicia social, incluyendo una agenda de inclusión y modernización y abogando por una asamblea nacional constituyente. En las elecciones de marzo de 1986, la UP obtuvo 6 senadores y 9 representantes a la cámara mediante alianzas, además de 14 diputados, 23 alcaldías y 351 concejales.",
+    "source_chapter": "30-El genocidio de la Unión Patriótica.txt"
+  },
+  {
+    "query": "¿Cuál fue la evolución del vínculo entre la UP y las FARC-EP desde su creación, y qué decisión tomó la UP en febrero de 1987 respecto a esta relación?",
+    "relevant_chunk_ids": [
+      "30-El genocidio de la Unión Patriótica.txt_0019",
+      "30-El genocidio de la Unión Patriótica.txt_0021",
+      "30-El genocidio de la Unión Patriótica.txt_0022"
+    ],
+    "ideal_answer": "Inicialmente, la UP mantuvo un vínculo estrecho con las FARC-EP, ya que fue creada para facilitar el tránsito de la guerrilla a la política. Sin embargo, esta relación se volvió insostenible debido a que la FARC-EP siguió expandiéndose para la guerra y sus miembros uniformados hacían proselitismo para la UP. Por ello, en febrero de 1987 la UP decidió enfatizar su carácter amplio, político y civilista, lo que llevó a las FARC-EP a retirar a sus representantes del movimiento.",
+    "source_chapter": "30-El genocidio de la Unión Patriótica.txt"
+  },
+  {
+    "query": "Según los cálculos del cnmh y la Misión de Observación Electoral (MOE), ¿cómo se manifestaba el exterminio de la UP en términos de personas electas, y qué patrones se identificaron en relación con los perpetradores de la masacre de Segovia?",
+    "relevant_chunk_ids": [
+      "30-El genocidio de la Unión Patriótica.txt_0030",
+      "30-El genocidio de la Unión Patriótica.txt_0032",
+      "30-El genocidio de la Unión Patriótica.txt_0033"
+    ],
+    "ideal_answer": "El CNMH calculó que más de una quinta parte de los elegidos por la UP durante ese periodo fueron asesinados; esta proporción aumenta a una de cada tres si se consideran solo las personas electas al congreso y alcaldías. En cuanto a la masacre de Segovia, atribuida al grupo Muerte a Revolucionarios del Nordeste (MRN) y dirigida por Fidel Castaño en colusión con el político liberal César Pérez, los testimonios ante la Comisión de la Verdad permitieron identificar un entramado entre fuerza pública, paramilitares y élites locales en el genocidio.",
+    "source_chapter": "30-El genocidio de la Unión Patriótica.txt"
+  },
+  {
+    "query": "¿Cuál fue la razón inicial de la expulsión de Javier Delgado de las FARC-EP y cuál fue el desenlace que motivó la expulsión de su organización, el Frente Ricardo Franco, de la Coordinadora Nacional Guerrillera (CNG)?",
+    "relevant_chunk_ids": [
+      "31-La unidad guerrillera.txt_0005",
+      "31-La unidad guerrillera.txt_0009"
+    ],
+    "ideal_answer": "Delgado fue expulsado de las FARC-EP en 1982 por negarse a rendir cuentas sobre los dineros de varios secuestros. La expulsión del Frente Ricardo Franco de la CNG en 1986 fue motivada por el asesinato de 164 de sus militantes y simpatizantes en Tacueyó, perpetrado por Delgado y su segundo al mando, Hernando Pizarro, debido a una historia de paranoia y delirio colectivo.",
+    "source_chapter": "31-La unidad guerrillera.txt"
+  },
+  {
+    "query": "Durante la gira por países socialistas, ¿qué resultados obtuvieron los guerrilleros colombianos en términos de adquisición de armas y qué países proveyeron cursos militares que influyeron en su doctrina?",
+    "relevant_chunk_ids": [],
+    "ideal_answer": "Los guerrilleros no obtuvieron armas de ninguna especie. Recibieron apoyo logístico de Cuba. Obtuvieron un curso militar en Libia (el cual fue accidentado) y un curso militar en Vietnam (el cual fue más centrado y organizado), siendo este último la causa de la influencia de la doctrina militar vietnamita.",
+    "source_chapter": "31-La unidad guerrillera.txt"
+  },
+  {
+    "query": "Describa la 'reingeniería' del sector militar colombiano impulsada por la toma de Saiza en 1988 y mencione la acción paralela de 'guerra sucia' que surgió de la misma premisa estratégica.",
+    "relevant_chunk_ids": [
+      "31-La unidad guerrillera.txt_0019",
+      "31-La unidad guerrillera.txt_0021",
+      "31-La unidad guerrillera.txt_0022"
+    ],
+    "ideal_answer": "La toma de Saiza empujó la reingeniería del sector militar, que incluyó la creación de divisiones y nuevas brigadas, el establecimiento del servicio militar voluntario, la creación de una fuerza de soldados profesionales, cambios en la inteligencia militar (que influyeron en la policía nacional y el DAS), y el fortalecimiento de la fuerza aérea y la armada nacional. Paralelamente, la premisa de que la guerra irregular solo se enfrenta de manera irregular desembocó en una 'guerra sucia', donde grupos de mercenarios extranjeros (británicos e israelíes), financiados por el narcotráfico y con anuencia del Ministerio de Defensa, entrenaron a personas como Carlos Castaño Gil en técnicas de combate urbano y terrorismo, las cuales trabajaban para los carteles.",
+    "source_chapter": "31-La unidad guerrillera.txt"
+  },
+  {
+    "query": "¿Cuál fue la razón principal que el empresario Mario Zuluaga dio para que los bananeros financiaran a grupos paramilitares en Urabá, y cuáles masacres reconoció que fueron una consecuencia de esa decisión?",
+    "relevant_chunk_ids": [
+      "32-La guerra sucia.txt_0005"
+    ],
+    "ideal_answer": "La razón principal fue evitar que la guerrilla se apoderara de la zona, obligando a los bananeros a decidir \"o la guerrilla o los bananeros\". Zuluaga reconoció que, como consecuencia, ocurrieron las masacres de Punta Coquitos, Honduras y La Negra.",
+    "source_chapter": "32-La guerra sucia.txt"
+  },
+  {
+    "query": "Describe la configuración del modelo paramilitar en Puerto Boyacá, mencionando qué actores lo nutrieron, y a qué otras regiones fue exportado posteriormente.",
+    "relevant_chunk_ids": [
+      "32-La guerra sucia.txt_0011",
+      "32-La guerra sucia.txt_0012"
+    ],
+    "ideal_answer": "El modelo paramilitar se creó en Puerto Boyacá. Se nutrió de grupos armados locales (como el de Gonzalo y Henry Pérez), y de sectores políticos y económicos como Pablo Emilio Guarín (representante del partido liberal) y ACDEGAM (asociación de ganaderos del magdalena medio). Este modelo fue exportado a regiones como Córdoba, Urabá, los Llanos y Boyacá.",
+    "source_chapter": "32-La guerra sucia.txt"
+  },
+  {
+    "query": "¿Qué hizo la jueza Marta Lucía González, que investigaba la red de sicarios del MAS, que provocó la reacción violenta de los criminales y la censura del Ministro de Defensa, y cómo se relaciona esto con las estadísticas de asesinatos de funcionarios judiciales entre 1985 y 1988?",
+    "relevant_chunk_ids": [
+      "32-La guerra sucia.txt_0027"
+    ],
+    "ideal_answer": "La jueza esclareció las masacres, develó los nexos de la red de sicarios con el emporio criminal del MAS en el Magdalena Medio y dictó medidas de detención a los criminales, lo que le valió tres atentados. Posteriormente, el Ministro de Defensa, General Rafael Samudio Molina, le ordenó detener de inmediato las acciones contra los militares. Esto ocurrió en un contexto donde el promedio anual de muertes de funcionarios judiciales subió de dos (1979-1982) a 10,5 (1985-1988).",
+    "source_chapter": "32-La guerra sucia.txt"
+  },
+  {
+    "query": "¿Cómo reaccionó el presidente Virgilio Barco a la declaración de guerra total de Los Extraditables y qué medidas operacionales y conceptuales implementó el gobierno a finales de 1989?",
+    "relevant_chunk_ids": [
+      "33-Cría cuervos....txt_0007",
+      "33-Cría cuervos....txt_0008",
+      "33-Cría cuervos....txt_0010",
+      "33-Cría cuervos....txt_0011"
+    ],
+    "ideal_answer": "El presidente Virgilio Barco respondió haciendo un llamado a la guerra, declarando que el país estaba en guerra contra los narcotraficantes y terroristas. Conceptual y estratégicamente, esto implicó que el narcotráfico fuera tratado como un problema de seguridad nacional en lugar de delincuencia común. Operacionalmente, creó el Grupo Élite en el segundo semestre de 1989, una unidad especial de la policía con autonomía cuyo objetivo era someter a Pablo Escobar y Gonzalo Rodríguez Gacha.",
+    "source_chapter": "33-Cría cuervos....txt"
+  },
+  {
+    "query": "¿Cuál era el propósito y la composición del Grupo Élite de la policía, y qué agencias y unidades de Estados Unidos colaboraron directamente con esta unidad?",
+    "relevant_chunk_ids": [
+      "33-Cría cuervos....txt_0011",
+      "33-Cría cuervos....txt_0012",
+      "33-Cría cuervos....txt_0013"
+    ],
+    "ideal_answer": "El Grupo Élite fue una unidad especial de la policía, conocida como Los Rojos o el Bloque de Búsqueda, con autonomía operacional y financiera, liderada por el coronel Hugo Martínez Poveda. Su objetivo era someter a Pablo Escobar y Gonzalo Rodríguez Gacha, cabezas del cartel de Medellín. Las agencias y unidades estadounidenses que la apoyaron fueron la DEA, la CIA, la unidad de localización de personas Central Spike, la Fuerza Delta y la Marina. Los integrantes de la DEA hicieron el acompañamiento más cercano, teniendo gente dentro del Bloque de Búsqueda y proporcionando entrenamiento y manejo de elementos técnicos.",
+    "source_chapter": "33-Cría cuervos....txt"
+  },
+  {
+    "query": "Según el texto, además de la lucha contra el estado, ¿qué dinámicas internas existían en la mafia, y cómo la muerte de Gonzalo Rodríguez Gacha afectó la relación entre el Cartel de Medellín y las autodefensas de Puerto Boyacá?",
+    "relevant_chunk_ids": [
+      "33-Cría cuervos....txt_0001",
+      "33-Cría cuervos....txt_0023",
+      "33-Cría cuervos....txt_0024"
+    ],
+    "ideal_answer": "Internamente, Pablo Escobar se enfrentó al Cartel de Cali, lo que obligó a los capos de la droga a tomar partido, existiendo una guerra interna en la mafia. La muerte de Gonzalo Rodríguez Gacha (financiador de las autodefensas de Puerto Boyacá) se produjo después de que el Cartel de Cali vendiera su ubicación. Tras la muerte de Gacha, Escobar amenazó a los líderes de esta agrupación para que se unieran a la guerra contra el estado, pero ellos se negaron porque la consideraban contraria a su propia guerra antisubversiva.",
+    "source_chapter": "33-Cría cuervos....txt"
+  },
+  {
+    "query": "Además de la crisis de legitimidad generada por el narcotráfico, ¿qué factores externos e internos revivieron la agenda de paz colombiana a finales de los 80, y qué acción específica realizó el M-19 en 1988 tras su Novena Conferencia?",
+    "relevant_chunk_ids": [
+      "34-Al filo del caos.txt_0000",
+      "34-Al filo del caos.txt_0001",
+      "34-Al filo del caos.txt_0002"
+    ],
+    "ideal_answer": "La agenda de paz revivió gracias a dos factores externos: los vientos de la convivencia pacífica entre la Unión Soviética y Estados Unidos y las negociaciones de paz en Centroamérica. Internamente, la Novena Conferencia del M-19 produjo la consigna: \"paz para la nación, tregua a las fuerzas armadas y guerra a la oligarquía\", lo que se tradujo en el secuestro del líder conservador Álvaro Gómez Hurtado en mayo de 1988.",
+    "source_chapter": "34-Al filo del caos.txt"
+  },
+  {
+    "query": "Según Antonio Navarro, ¿cuáles fueron las cinco razones principales que llevaron al M-19 a negociar en solitario a partir de enero de 1989, tal como se refleja en el título 'La paz es una decisión política'?",
+    "relevant_chunk_ids": [],
+    "ideal_answer": "Las cinco razones que motivaron la negociación en solitario del M-19 fueron: 1) El impacto de la toma del Palacio en la imagen del grupo, obligando a una estrategia de paz; 2) La conciencia sobre la inviabilidad de la lucha armada; 3) La consciencia del resultado negativo de la violencia para la construcción de un polo progresista; 4) El impacto de la tercera ola de democratización en América Latina; y 5) El cambio en la orientación de la URSS, junto con la caída del Muro de Berlín y los regímenes comunistas en Europa Oriental.",
+    "source_chapter": "34-Al filo del caos.txt"
+  },
+  {
+    "query": "Explique cómo el asesinato de Galán activó el cambio constitucional de 1991, detallando el fracaso del intento de reforma \"desde arriba\" y el proceso que dio inicio al \"constituyente primario\".",
+    "relevant_chunk_ids": [
+      "34-Al filo del caos.txt_0008",
+      "34-Al filo del caos.txt_0009",
+      "34-Al filo del caos.txt_0010",
+      "34-Al filo del caos.txt_0013",
+      "34-Al filo del caos.txt_0014"
+    ],
+    "ideal_answer": "El intento de reforma constitucional \"desde arriba\" fracasó porque Galán, al regresar al Partido Liberal, había condicionado su participación a una reforma constitucional, pero esta fue saboteada en la Cámara de Representantes por parlamentarios liberales aliados de Escobar, quienes intentaron añadir la prohibición de la extradición. Tras el hundimiento de la reforma y el asesinato de Galán, se cerró la posibilidad de un cambio controlado, lo que activó el constituyente primario a través de la indignación social manifestada en la Marcha del Silencio y el movimiento estudiantil que impulsó la 'Séptima Papeleta' para convocar a una asamblea constituyente.",
+    "source_chapter": "34-Al filo del caos.txt"
+  },
+  {
+    "query": "¿Quién propuso originalmente la idea de la Asamblea Nacional Constituyente y qué mecanismo específico utilizó el gobierno del presidente Barco para incluir la pregunta sobre su realización en las elecciones de mayo de 1990?",
+    "relevant_chunk_ids": [
+      "35-No es el pasado, es el futuro.txt_0000",
+      "35-No es el pasado, es el futuro.txt_0003"
+    ],
+    "ideal_answer": "La idea fue planteada por primera vez en las negociaciones entre el gobierno de Belisario Betancur y el EPL, y posteriormente fue retomada por el movimiento estudiantil. El gobierno de Barco utilizó el decreto 927, expedido bajo las facultades del estado de sitio, para ordenar la inclusión de la pregunta a los electores en los comicios.",
+    "source_chapter": "35-No es el pasado, es el futuro.txt"
+  },
+  {
+    "query": "Además de su impacto económico y de seguridad, ¿cuáles fueron las otras dos principales funciones que asumió el narcotráfico como ordenador del escenario de las guerras hacia mediados de los años noventa?",
+    "relevant_chunk_ids": [],
+    "ideal_answer": "El narcotráfico actuó como actor político al desencadenar en varios momentos la crisis institucional, y como fenómeno social, se adaptó a diferentes momentos y territorios, dejando impactos duraderos en la cultura y los imaginarios colectivos.",
+    "source_chapter": "35-No es el pasado, es el futuro.txt"
+  },
+  {
+    "query": "Según el testimonio de Otty Patiño a la Comisión de la Verdad, ¿cuál fue el propósito principal detrás del asesinato de Carlos Pizarro, y quiénes habían ordenado su muerte?",
+    "relevant_chunk_ids": [],
+    "ideal_answer": "Fidel Castaño reveló a Otty Patiño que la muerte de Pizarro fue ordenada por un grupo de notables que señalaban los blancos de la guerra sucia. El propósito principal no era una venganza por el pasado, sino una acción dirigida hacia el futuro.",
+    "source_chapter": "35-No es el pasado, es el futuro.txt"
+  },
+  {
+    "query": "¿Qué tipo de paz ha prevalecido en Colombia según el texto, y cuál es la razón principal de que los logros de la paz sean frágiles?",
+    "relevant_chunk_ids": [
+      "36-La paz.txt_0000",
+      "36-La paz.txt_0001"
+    ],
+    "ideal_answer": "La paz ha sido predominantemente negativa, definida como \"el silencio de los fusiles\". Su fragilidad se debe a que no se ha puesto suficiente empeño o se abandonan las cuestiones relacionadas con la estructura política, económica y social del país.",
+    "source_chapter": "36-La paz.txt"
+  },
+  {
+    "query": "A pesar de la fragilidad, ¿qué efecto han tenido los acuerdos de paz en Colombia en términos de construcción de estado y nación?",
+    "relevant_chunk_ids": [
+      "36-La paz.txt_0000"
+    ],
+    "ideal_answer": "Los acuerdos de paz han sido los momentos más democratizadores y modernizantes para Colombia, significando \"saltos cualitativos\" en la construcción de estado y nación.",
+    "source_chapter": "36-La paz.txt"
+  },
+  {
+    "query": "Según el texto, ¿cuál era la tríada de elementos que conformaban la paz en el espíritu del acuerdo de Betancur, y cuál de estos componentes quedó \"cojo\"?",
+    "relevant_chunk_ids": [
+      "36-La paz.txt_0002"
+    ],
+    "ideal_answer": "La tríada estaba compuesta por reincorporación, rehabilitación y reconciliación. El componente que quedó cojo, o incompleto, fue la reconciliación.",
+    "source_chapter": "36-La paz.txt"
+  }
+]

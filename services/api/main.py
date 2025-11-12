@@ -11,8 +11,9 @@ from pymilvus import connections, Collection
 
 # --- Stack de IA (Embeddings y Generador) ---
 from sentence_transformers import SentenceTransformer
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+#from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
+import google.generativeai as genai
 
 # --- Variables de Entorno (leídas desde docker-compose.yml) ---
 SOLR_HOST = os.getenv("SOLR_HOST", "localhost")
@@ -27,8 +28,8 @@ MILVUS_ALIAS = "default"
 # --- Constantes del Modelo ---
 # Mismo modelo de embeddings usado en la indexación [cite: 42, 43, 156]
 EMBEDDING_MODEL_NAME = 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
-# Un modelo generador (LLM) Seq2Seq pequeño pero capaz
-LLM_NAME = 'google/flan-t5-base'
+# Un modelo generador (LLM) bastante bueno de Google
+LLM_NAME = 'gemini-flash-latest'
 
 # Constantes de la colección de Milvus (deben coincidir con index_milvus.py)
 COLLECTION_NAME = "taller_rag_corpus"
@@ -46,10 +47,42 @@ async def lifespan(app: FastAPI):
     print(f"Cargando modelo de embeddings: {EMBEDDING_MODEL_NAME}")
     models["embedding_model"] = SentenceTransformer(EMBEDDING_MODEL_NAME)
     
-    print(f"Cargando modelo generador (LLM): {LLM_NAME}")
-    models["llm_tokenizer"] = AutoTokenizer.from_pretrained(LLM_NAME)
-    models["llm_model"] = AutoModelForSeq2SeqLM.from_pretrained(LLM_NAME)
-    
+    # 2. Configurar y cargar el LLM de Google
+    print(f"Configurando modelo generador (LLM) de Google: {LLM_NAME}")
+    try:
+        api_key = os.getenv("GOOGLE_API_KEY")
+        if not api_key:
+            raise ValueError("GOOGLE_API_KEY no encontrada. Asegúrate de definirla en el .env")
+        
+        genai.configure(api_key=api_key)
+        
+        # Configuración de seguridad (ajusta según necesidad)
+        generation_config = {
+            "temperature": 0.5,
+            "top_p": 1,
+            "top_k": 1,
+            "max_output_tokens": 8192
+        }
+        safety_settings = [
+            {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"},
+        ]
+        
+        print("Características de seguridad actuales:",safety_settings)
+        
+        models["llm_model"] = genai.GenerativeModel(
+            model_name=LLM_NAME,
+            generation_config=generation_config,
+            safety_settings=safety_settings
+        )
+        print("Modelo Generador de Google cargado.")
+        
+    except Exception as e:
+        print(f"Error fatal al cargar el modelo de Google: {e}")
+        models["llm_model"] = None 
+        
     print("Conectando a Milvus...")
     connections.connect(alias=MILVUS_ALIAS, host=MILVUS_HOST, port=MILVUS_PORT)
     
@@ -90,7 +123,8 @@ class SourceDocument(BaseModel):
 class AskResponse(BaseModel):
     answer: str
     source_documents: List[SourceDocument] # Para trazabilidad [cite: 57, 169, 193]
-
+    retrieval_latency_sec: float
+    
 # --- Lógica RAG: Solr (Léxico) --- 
 def rag_with_solr(query: str, k: int) -> List[SourceDocument]:
     print(f"Recuperando (Solr) k={k} para: '{query}'")
@@ -104,7 +138,9 @@ def rag_with_solr(query: str, k: int) -> List[SourceDocument]:
             "fl": "id, source_document_s, text_content_txt_es", # Campos a devolver
             "rows": k
         }
+        start_search = time.time()
         results = solr.search(q=f"text_content_txt_es:({query})", **search_params)
+        retrieval_time = time.time() - start_search        
         
         # 3. Recolectar contexto y fuentes [cite: 181]
         documents = []
@@ -117,7 +153,7 @@ def rag_with_solr(query: str, k: int) -> List[SourceDocument]:
                         source_file=doc.get('source_document_s', 'N/A')
                     )
                 )
-        return documents
+        return documents, retrieval_time
         
     except Exception as e:
         print(f"Error en rag_with_solr: {e}")
@@ -140,13 +176,15 @@ def rag_with_milvus(query: str, k: int) -> List[SourceDocument]:
             "params": {"nprobe": 10}
         }
         
+        start_search = time.time()
         results = collection.search(
             data=query_vector,
             anns_field=VECTOR_FIELD_NAME,
             param=search_params,
             limit=k,
-            output_fields=[TEXT_FIELD_NAME, "source_document"] # Pedimos los campos de texto
+            output_fields=[TEXT_FIELD_NAME, "source_document"]
         )
+        retrieval_time = time.time() - start_search        
         
         # 3. Recolectar contexto y fuentes [cite: 187]
         documents = []
@@ -160,7 +198,7 @@ def rag_with_milvus(query: str, k: int) -> List[SourceDocument]:
                         source_file=entity.get('source_document', 'N/A')
                     )
                 )
-        return documents
+        return documents, retrieval_time
 
     except Exception as e:
         print(f"Error en rag_with_milvus: {e}")
@@ -168,12 +206,12 @@ def rag_with_milvus(query: str, k: int) -> List[SourceDocument]:
 
 # --- Lógica RAG: Generación (LLM) --- 
 def generate_answer(query: str, context_docs: List[SourceDocument]) -> str:
-    print(f"Generando respuesta...")
+    print(f"Generando respuesta con {LLM_NAME}...")
     
     # 1. Formatear el Prompt [cite: 191]
     context = "\n\n".join([doc.content for doc in context_docs])
     
-    prompt_template = f"""
+    prompt = f"""
 Usando SÓLO el siguiente contexto, responde la pregunta.
 Si la respuesta no está en el contexto, di "No tengo información suficiente".
 
@@ -185,29 +223,54 @@ Pregunta:
 
 Respuesta (en español):
 """    
-    # 2. Ejecutar inferencia con el LLM [cite: 192]
     try:
-        tokenizer = models["llm_tokenizer"]
-        model = models["llm_model"]
+        model = models.get("llm_model")
+        if model is None:
+            raise Exception("El modelo LLM de Google no está cargado.")
         
-        inputs = tokenizer(prompt_template, return_tensors="pt", max_length=1024, truncation=True)
+        safety_settings = [
+            {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"},
+        ]
         
-        # Generar la respuesta
-        outputs = model.generate(
-            **inputs, 
-            max_length=256, 
-            num_beams=4, 
-            early_stopping=True
-        )
+        # Llamada a la API de Gemini
+        response = model.generate_content(prompt, safety_settings=safety_settings)
         
-        # 3. Decodificar la respuesta [cite: 193]
-        answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        return answer
+        # --- VERIFICACIÓN DE RESPUESTA (CORREGIDA) ---
+        
+        if not response.candidates:
+            # Manejar bloqueo de prompt (esto no ha cambiado)
+            if response.prompt_feedback:
+                error_detail = f"BLOQUEO DE PROMPT. Razón: {response.prompt_feedback.block_reason}. Ratings: {response.prompt_feedback.safety_ratings}"
+                print(f"Error en generate_answer (Gemini): {error_detail}")
+                return f"Error al generar la respuesta: {error_detail}"
+            else:
+                return "Error al generar la respuesta: Respuesta vacía sin feedback."
 
+        candidate = response.candidates[0]
+        
+        # --- CORRECCIÓN CLAVE AQUÍ ---
+        # Aceptamos la respuesta si se detuvo (1) O si alcanzó el límite de tokens (2)
+        if candidate.finish_reason.value in [1, 2]: # 1 = STOP, 2 = MAX_TOKENS
+            return response.text # Éxito, devuelve el texto (incluso si está truncado)
+        # --- FIN DE LA CORRECCIÓN CLAVE ---
+
+        # Si no es 1 ni 2, ES un error (SAFETY, RECITATION, OTHER)
+        error_detail = f"Razón: {candidate.finish_reason.name} ({candidate.finish_reason.value}). "
+        
+        if candidate.safety_ratings:
+            ratings = [f"{rating.category.name}: {rating.probability.name}" for rating in candidate.safety_ratings]
+            error_detail += f"Ratings: [{', '.join(ratings)}]"
+        
+        print(f"Error en generate_answer (Gemini): {error_detail}")
+        return f"Error al generar la respuesta: {error_detail}"
+        
     except Exception as e:
-        print(f"Error en generate_answer: {e}")
-        return "Error al generar la respuesta."
-
+        print(f"Error en generate_answer (Gemini): {e}")
+        return f"Error al generar la respuesta: {e}"
+# --- FIN DE LA MODIFICACIÓN ---
 
 # --- Endpoint Principal de la API ---
 @app.post("/ask", response_model=AskResponse)
@@ -219,12 +282,13 @@ async def post_ask(request: AskRequest):
     start_time = time.time()
     
     source_documents = []
+    retrieval_latency = 0.0
     
     # 1. Lógica de Enrutamiento (Dispatch) 
     if request.backend == "solr":
-        source_documents = rag_with_solr(request.query, request.k)
+        source_documents, retrieval_latency = rag_with_solr(request.query, request.k)
     elif request.backend == "milvus":
-        source_documents = rag_with_milvus(request.query, request.k)
+        source_documents, retrieval_latency = rag_with_milvus(request.query, request.k)
     else:
         raise HTTPException(status_code=400, detail="Backend no válido. Use 'solr' o 'milvus'.")
         
@@ -241,7 +305,8 @@ async def post_ask(request: AskRequest):
     # 3. Devolver respuesta con trazabilidad [cite: 57, 193]
     return AskResponse(
         answer=answer,
-        source_documents=source_documents
+        source_documents=source_documents,
+        retrieval_latency_sec=retrieval_latency
     )
 
 # Endpoint de salud para verificar que la API esté viva

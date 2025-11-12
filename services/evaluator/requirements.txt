@@ -5,3 +5,4 @@ tqdm
 rouge-score
 # NLTK es usado por rouge-score para tokenizar
 nltk
+tabulate

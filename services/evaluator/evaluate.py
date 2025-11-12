@@ -82,10 +82,12 @@ def run_evaluation():
 
     results_list = []
     
-    # 3. Iterar sobre cada pregunta y cada backend
-    for item in tqdm(gold_standard, desc="Evaluando preguntas"):
+    # Iterar sobre cada pregunta y cada backend
+    # Envolvemos el bucle principal con tqdm
+    pbar = tqdm(total=len(gold_standard) * 2, desc="Evaluando (Solr/Milvus)")
+
+    for item in gold_standard:
         query = item['query']
-        # Usa la clave de tu Gold Standard
         relevant_ids = item['relevant_chunk_ids'] 
         ideal_answer = item['ideal_answer']
 
@@ -99,6 +101,7 @@ def run_evaluation():
                 }
                 start_time = time.time()
                 response = requests.post(API_URL, json=payload, timeout=180)
+                # 'latency' aquí es la latencia TOTAL (Búsqueda + Generación)
                 latency = time.time() - start_time
                 
                 if response.status_code != 200:
@@ -108,6 +111,7 @@ def run_evaluation():
                 generated_answer = data.get('answer', '')
                 retrieved_docs = data.get('source_documents', [])
                 retrieved_ids = [doc.get('id', '') for doc in retrieved_docs]
+                retrieval_latency = data.get('retrieval_latency_sec', -1)
 
                 # 3.2. Calcular Métricas
                 recall = calculate_recall_at_k(retrieved_ids, relevant_ids, K_METRICS)
@@ -118,25 +122,31 @@ def run_evaluation():
                 results_list.append({
                     "query": query,
                     "backend": backend,
-                    "latency_sec": latency,
+                    "total_latency_sec": latency,
+                    "retrieval_latency_sec": retrieval_latency,
                     "recall_at_k": recall,
                     "mrr_at_k": mrr,
                     "rouge_l_f1": rouge_l,
                     "generated_answer": generated_answer,
-                    "retrieved_ids": "|".join(retrieved_ids), # Guardar como string
-                    "relevant_ids": "|".join(relevant_ids)   # Guardar como string
+                    "retrieved_ids": "|".join(retrieved_ids),
+                    "relevant_ids": "|".join(relevant_ids)
                 })
 
             except Exception as e:
-                print(f"\nError procesando query (Backend: {backend}): '{query}'")
-                print(f"Detalle: {e}\n")
+                # ... (el manejo de errores no cambia) ...
                 results_list.append({
-                    "query": query, "backend": backend, "latency_sec": -1,
+                    "query": query, "backend": backend, 
+                    "total_latency_sec": -1, "retrieval_latency_sec": -1,
                     "recall_at_k": 0, "mrr_at_k": 0, "rouge_l_f1": 0,
                     "generated_answer": f"ERROR: {e}",
                 })
+            
+            pbar.update(1) # Actualizar la barra de progreso
+            # --- FIN DE LA MODIFICACIÓN ---
 
-    # 4. Guardar resultados en CSV
+    pbar.close() # Cerrar la barra de progreso
+    
+    # ... (El guardado en CSV y el resumen final no cambian) ...
     if not results_list:
         print("No se generaron resultados.")
         return
@@ -150,10 +160,11 @@ def run_evaluation():
     except Exception as e:
         print(f"Error al guardar el CSV en {RESULTS_PATH}: {e}")
 
-    # 5. (Opcional) Imprimir resumen
     print("\n--- Resumen de Métricas (Promedio) ---")
-    df_summary = df_results.groupby('backend')[['latency_sec', 'recall_at_k', 'mrr_at_k', 'rouge_l_f1']].mean()
-    print(df_summary.to_string(floatfmt=".4f"))
+    metric_cols = ['total_latency_sec', 'retrieval_latency_sec', 'recall_at_k', 'mrr_at_k', 'rouge_l_f1']
+    df_summary = df_results.groupby('backend')[metric_cols].mean()
+    
+    print(df_summary.to_markdown(floatfmt=".4f"))
 
 
 if __name__ == "__main__":
