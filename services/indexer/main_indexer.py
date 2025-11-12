@@ -12,8 +12,8 @@ from index_milvus import index_data_in_milvus
 # --- Configuración del Corpus y Segmentación ---
 CORPUS_PATH = "/data/corpus" # Ruta en Docker
 FILE_PATTERN = "*.txt"
-CHUNK_SIZE = 3       # Número de oraciones por "pasaje" (chunk)
-CHUNK_OVERLAP = 1    # Número de oraciones a superponer
+CHUNK_SIZE = 5       # Número de oraciones por "pasaje" (chunk)
+CHUNK_OVERLAP = 2    # Número de oraciones a superponer
 
 def setup_nltk():
     """Descarga los paquetes necesarios de NLTK."""
