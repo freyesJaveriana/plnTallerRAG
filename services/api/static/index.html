@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Taller RAG (Solr/Milvus)</title>
+    <!-- Cargamos Tailwind CSS para un diseño rápido y limpio -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilo para el loader */
+        .loader {
+            border-top-color: #3498db;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+        }
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+        
+        <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 border-b pb-4">
+                Demo Funcional RAG: Solr vs. Milvus
+            </h1>
+
+            <!-- Formulario de Consulta -->
+            <div class="space-y-4">
+                <div>
+                    <label for="query" class="block text-sm font-medium text-gray-700 mb-1">Consulta:</label>
+                    <input type="text" id="query" name="query" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Escribe tu pregunta aquí...">
+                </div>
+                
+                <div>
+                    <label for="backend" class="block text-sm font-medium text-gray-700 mb-1">Tecnología:</label>
+                    <select id="backend" name="backend" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <option value="milvus">Milvus (Búsqueda Vectorial)</option>
+                        <option value="solr">Solr (Búsqueda Léxica/BM25)</option>
+                    </select>
+                </div>
+                
+                <button id="searchButton" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out flex items-center justify-center">
+                    <span id="buttonText">Buscar</span>
+                    <div id="loader" class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-5 w-5 ml-2 hidden"></div>
+                </button>
+            </div>
+
+            <!-- Área de Resultados -->
+            <div id="results" class="mt-8 hidden">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Resultados</h2>
+                
+                <!-- Mensaje de Error -->
+                <div id="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md mb-4 hidden" role="alert">
+                    <strong class="font-bold">Error:</strong>
+                    <span class="block sm:inline" id="errorMessage"></span>
+                </div>
+
+                <!-- Respuesta Generada -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Respuesta Generada:</h3>
+                    <div id="answer" class="bg-gray-50 p-4 rounded-md border border-gray-200 text-gray-900"></div>
+                </div>
+
+                <!-- Documentos Fuente -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Documentos Fuente:</h3>
+                    <div id="sources" class="space-y-4">
+                        <!-- Los documentos se insertarán aquí dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- JSON Crudo -->
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Respuesta JSON Completa:</h3>
+                    <pre class="bg-gray-900 text-green-400 p-4 rounded-md shadow-inner overflow-x-auto text-sm"><code id="rawJson"></code></pre>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Elementos del DOM
+        const queryInput = document.getElementById('query');
+        const backendSelect = document.getElementById('backend');
+        const searchButton = document.getElementById('searchButton');
+        const buttonText = document.getElementById('buttonText');
+        const loader = document.getElementById('loader');
+        
+        const resultsDiv = document.getElementById('results');
+        const errorDiv = document.getElementById('error');
+        const errorMessage = document.getElementById('errorMessage');
+        const answerDiv = document.getElementById('answer');
+        const sourcesDiv = document.getElementById('sources');
+        const rawJsonDiv = document.getElementById('rawJson');
+
+        // Event Listener para el botón
+        searchButton.addEventListener('click', async () => {
+            const query = queryInput.value;
+            const backend = backendSelect.value;
+
+            if (!query) {
+                alert('Por favor, escribe una consulta.');
+                return;
+            }
+
+            // Mostrar estado de carga
+            buttonText.textContent = 'Buscando...';
+            loader.classList.remove('hidden');
+            searchButton.disabled = true;
+            resultsDiv.classList.add('hidden');
+            errorDiv.classList.add('hidden');
+
+            try {
+                // Construir el payload para la API
+                const payload = {
+                    query: query,
+                    backend: backend,
+                    k: 3 // K fijo para la demo
+                };
+
+                // Llamar a la API (en el mismo host, puerto 8000)
+                // Usamos una ruta relativa "/ask" porque esta página se sirve
+                // desde la misma raíz que la API.
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    // Si la API devuelve un error (ej. 400, 500)
+                    throw new Error(data.detail || `Error del servidor: ${response.status}`);
+                }
+
+                // Mostrar resultados
+                displayResults(data);
+
+            } catch (error) {
+                // Mostrar error de red o de la API
+                console.error('Error al realizar la búsqueda:', error);
+                errorMessage.textContent = error.message;
+                errorDiv.classList.remove('hidden');
+                resultsDiv.classList.remove('hidden'); // Mostrar para que se vea el error
+                answerDiv.innerHTML = '';
+                sourcesDiv.innerHTML = '';
+                rawJsonDiv.textContent = '';
+            } finally {
+                // Restaurar estado del botón
+                buttonText.textContent = 'Buscar';
+                loader.classList.add('hidden');
+                searchButton.disabled = false;
+            }
+        });
+
+        function displayResults(data) {
+            // 1. Mostrar Respuesta Generada
+            answerDiv.textContent = data.answer;
+
+            // 2. Mostrar Documentos Fuente
+            sourcesDiv.innerHTML = ''; // Limpiar fuentes anteriores
+            if (data.source_documents && data.source_documents.length > 0) {
+                data.source_documents.forEach((doc, index) => {
+                    const sourceElement = document.createElement('div');
+                    sourceElement.className = 'bg-gray-50 p-4 rounded-md border border-gray-200';
+                    sourceElement.innerHTML = `
+                        <p class="text-sm font-medium text-gray-800">Fuente ${index + 1} (ID: ${doc.id})</p>
+                        <p class="text-xs text-gray-600 mb-2">Archivo: ${doc.source_file}</p>
+                        <p class="text-sm text-gray-700 italic">"...${escapeHTML(doc.content.substring(0, 300))}..."</p>
+                    `;
+                    sourcesDiv.appendChild(sourceElement);
+                });
+            } else {
+                sourcesDiv.innerHTML = '<p class="text-sm text-gray-500">No se encontraron documentos fuente.</p>';
+            }
+
+            // 3. Mostrar JSON Crudo
+            rawJsonDiv.textContent = JSON.stringify(data, null, 2);
+
+            // 4. Mostrar toda la sección de resultados
+            resultsDiv.classList.remove('hidden');
+            errorDiv.classList.add('hidden');
+        }
+
+        // Helper para evitar inyección de HTML en los resultados
+        function escapeHTML(str) {
+            return str.replace(/[&<>"']/g, function(m) {
+                return {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                }[m];
+            });
+        }
+    </script>
+</body>
+</html>

@@ -5,6 +5,11 @@ from pydantic import BaseModel
 from typing import List, Dict, Any
 from contextlib import asynccontextmanager
 
+# --- NUEVAS IMPORTACIONES ---
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+# --- FIN NUEVAS IMPORTACIONES ---
+
 # --- Conectores de Bases de Datos ---
 import pysolr
 from pymilvus import connections, Collection
@@ -284,7 +289,7 @@ Respuesta (en español):
         
     except Exception as e:
         print(f"Error en generate_answer (Gemini): {e}")
-        return f"Error al generar la respuesta: {e}"
+        return f"Error al generar larespuesta: {e}"
 # --- FIN DE LA MODIFICACIÓN ---
 
 # --- Endpoint Principal de la API ---
@@ -328,3 +333,19 @@ async def post_ask(request: AskRequest):
 @app.get("/health")
 async def health_check():
     return {"status": "ok", "models_loaded": list(models.keys())}
+
+
+# --- NUEVOS ENDPOINTS PARA SERVIR LA DEMO ---
+
+# 1. Sirve la página principal de la demo
+@app.get("/", response_class=FileResponse)
+async def read_index():
+    # Apunta al archivo HTML que crearemos dentro de la carpeta 'static'
+    return "static/index.html"
+
+# 2. Monta el directorio 'static' para servir cualquier otro archivo (CSS, JS, imágenes, etc.)
+#    Lo montamos en una ruta como "/static" aunque para este ejemplo simple no es
+#    estrictamente necesario, es una buena práctica.
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# --- FIN DE NUEVOS ENDPOINTS ---
